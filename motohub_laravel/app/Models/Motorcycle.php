@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Motorcycle extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'model', 'category', 'image', 'description', 'price', 'stock', 'state'];
+    protected $fillable = ['name', 'model', 'category', 'image', 'description', 'price', 'stock', 'state', 'brand_id'];
 
     public function getName(): string
     {
@@ -89,6 +90,31 @@ class Motorcycle extends Model
     public function setState(string $state): void
     {
         $this->state = $state;
+    }
+
+    public function getBrandId(): int
+    {
+        return $this->brand_id;
+    }
+
+    public function setBrandId(int $id): void
+    {
+        $this->brand_id = $id;
+    }
+
+    public function brand(): BelongsTo
+    {
+        return $this->belongsTo(Brand::class);
+    }
+
+    public function getBrand(): Brand
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(Brand $brand): void
+    {
+        $this->brand = $brand;
     }
 }
 

@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -22,13 +21,14 @@ class MotorcycleFactory extends Factory
             'model' => fake()->randomElement(['R1', 'CBR', 'Ninja', 'GSX']),
             'category' => fake()->randomElement(['Sport', 'Naked', 'Touring', 'Cruiser']),
             'image' => fake()->randomElement(['yamaha-r1.jpg', 'honda-cbr.jpg', 'kawasaki-ninja.jpg', 'suzuki-gsx.jpg']),
-            'description' => fake()->randomElement(['The Yamaha YZF-R1, or R1, is an open class sport bike, or superbike, motorcycle manufactured by Yamaha Motor Company since 1998.',
+            'description' => fake()->randomElement(['The Yamaha YZF-R1',
                 'The Honda CBR',
                 'The Kawasaki',
                 'The Suzuki']),
             'price' => fake()->randomFloat(2, 10000, 20000),
             'stock' => fake()->numberBetween(0, 10),
-            'state' => fake()->randomElement(['Antioquia', 'Cundinamarca'])
+            'state' => fake()->randomElement(['Antioquia', 'Cundinamarca']),
+            'brand_id' => fake()->numberBetween(1, 5),
         ];
     }
 

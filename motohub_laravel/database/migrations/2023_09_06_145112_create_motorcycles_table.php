@@ -21,6 +21,8 @@ return new class extends Migration
             $table->float('price');
             $table->integer('stock');
             $table->string('state');
+            $table->unsignedBigInteger('brand_id');
+            $table->foreign('brand_id')->references('id')->on('brands');
             $table->timestamps();
         });
     }

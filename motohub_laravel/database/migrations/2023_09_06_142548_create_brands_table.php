@@ -15,11 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('country_origin');
-            $table->date('foundation_year');
+            $table->integer('foundation_year');
             $table->string('logo_image');
             $table->string('description');
-            $table->unsignedBigInteger('motorcycle_id');
-            $table->foreign('motorcycle_id')->references('id')->on('motorcycles');
             $table->timestamps();
         });
     }
