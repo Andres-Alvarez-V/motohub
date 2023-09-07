@@ -12,6 +12,7 @@
                 <h5 class="card-title">
                     {{ $viewData["name"] }}
                 </h5>
+                <img src="{{$viewData['logo_image']}}" alt="" srcset="">
                 <p class="card-text">{{ $viewData["description"] }}</p>
                 <a href="/brands/delete/{{$viewData["id"]}}" class="btn bg-primary text-white">Delete</a>
                 @foreach ($viewData["brand"]->getMotorcycles() as $motorcycle)

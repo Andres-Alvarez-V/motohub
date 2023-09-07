@@ -14,6 +14,11 @@ class Brand extends Model
 
     protected $fillable = ['name', 'country_origin', 'foundation_year', 'logo_image', 'description'];
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+    
     public function getName(): string
     {
         return $this->name;
