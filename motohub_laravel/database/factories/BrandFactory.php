@@ -25,7 +25,7 @@ class BrandFactory extends Factory
                 'Yamaha Motor Company Limited',
                 'Honda Motor Company, Ltd',
                 'Kawasaki Heavy Industries Ltd',
-                'Suzuki Motor Corporation'
+                'Suzuki Motor Corporation',
             ]),
         ];
     }

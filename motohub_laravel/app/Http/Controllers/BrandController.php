@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
-use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
@@ -13,7 +13,7 @@ class BrandController extends Controller
         $viewData['brands'] = Brand::with('motorcycles')->get();
         $viewData['title'] = 'Brands';
 
-        return view('brand.index')->with("viewData", $viewData);
+        return view('brand.index')->with('viewData', $viewData);
     }
 
     public function show(int $id): View
@@ -26,14 +26,14 @@ class BrandController extends Controller
         $viewData['id'] = $brand->getId();
         $viewData['logo_image'] = $brand->getLogoImage();
 
-        return view('brand.show')->with("viewData", $viewData);
+        return view('brand.show')->with('viewData', $viewData);
     }
 
     public function create(): View
     {
         $viewData['title'] = 'Create Brand';
 
-        return view('brand.create')->with("viewData", $viewData);
+        return view('brand.create')->with('viewData', $viewData);
     }
 
     public function save(Request $request)
@@ -43,7 +43,7 @@ class BrandController extends Controller
             'country_origin' => 'required',
             'foundation_year' => 'required',
             'logo_image' => 'required',
-            'description' => 'required'
+            'description' => 'required',
         ]);
         Brand::create($request->only(['name', 'country_origin', 'foundation_year', 'logo_image', 'description']));
 

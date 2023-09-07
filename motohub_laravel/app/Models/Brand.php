@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Brand extends Model
@@ -18,7 +17,7 @@ class Brand extends Model
     {
         return $this->id;
     }
-    
+
     public function getName(): string
     {
         return $this->name;
@@ -83,5 +82,4 @@ class Brand extends Model
     {
         $this->motorcycles = $motorcycles;
     }
-
 }
