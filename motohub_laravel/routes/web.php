@@ -14,3 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
+Route::get('/brands', 'App\Http\Controllers\BrandController@index')->name("brand.index");
+Route::get('/brands/{id}', 'App\Http\Controllers\BrandController@show')->name("brand.show");
+Route::get('/brands/delete/{id}', 'App\Http\Controllers\BrandController@delete')->name('brand.delete');

@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        Brand::factory(10)->create();   
+        // Brand::factory(10)->create();   
         Motorcycle::factory(10)->create();
     }
 }

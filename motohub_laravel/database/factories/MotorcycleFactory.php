@@ -28,7 +28,7 @@ class MotorcycleFactory extends Factory
             'price' => fake()->randomFloat(2, 10000, 20000),
             'stock' => fake()->numberBetween(0, 10),
             'state' => fake()->randomElement(['Antioquia', 'Cundinamarca']),
-            'brand_id' => fake()->numberBetween(1, 5),
+            'brand_id' => fake()->numberBetween(1, 4),
         ];
     }
 
