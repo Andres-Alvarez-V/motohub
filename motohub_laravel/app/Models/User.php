@@ -4,9 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Client\Request;
 
 class User extends Authenticatable
 {
+
+    /**
+     * User ATTRIBUTES
+     * $this->attributes['id'] - int - contains the User primary key (id)
+     * $this->attributes['name'] - string - contains the User name
+     * $this->attributes['birthDate'] - string - contains the User birthDate
+     * $this->attributes['address'] - string - contains the User address
+     * $this->attributes['email'] - string - contains the User email
+     * $this->attributes['password'] - string - contains the User password
+     * $this->attributes['username'] - string - contains the User username
+     * $this->attributes['balance'] - float - contains the User balance
+     * $this->attributes['role'] - string - contains the User role
+     * $this->attributes['created_at'] - string - contains the User creation date
+     * $this->attributes['updated_at'] - string - contains the User update date
+     */
+
     use HasFactory;
 
     protected $fillable = [
@@ -21,7 +38,7 @@ class User extends Authenticatable
     ];
 
     protected $hidden = [
-        'password'
+        'password',
     ];
 
     protected $casts = [
