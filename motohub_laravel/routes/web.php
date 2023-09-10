@@ -13,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
+
+Auth::routes();
+
+Route::get('/', 'App\Http\Controllers\User\HomeController@index')->name('user.index');
+Route::get('/home', 'App\Http\Controllers\User\HomeController@home')->name('user.home');
+Route::get('/home/admin', 'App\Http\Controllers\Admin\HomeController@home')->name('admin.home');
 Route::get('/brands', 'App\Http\Controllers\BrandController@index')->name('brand.index');
 Route::get('/brands/create', 'App\Http\Controllers\BrandController@create')->name('brand.create');
 Route::post('/brands/save', 'App\Http\Controllers\BrandController@save')->name('brand.save');
