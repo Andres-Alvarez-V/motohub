@@ -19,3 +19,8 @@ Route::get('/brands/create', 'App\Http\Controllers\BrandController@create')->nam
 Route::post('/brands/save', 'App\Http\Controllers\BrandController@save')->name('brand.save');
 Route::get('/brands/{id}', 'App\Http\Controllers\BrandController@show')->name('brand.show');
 Route::get('/brands/delete/{id}', 'App\Http\Controllers\BrandController@delete')->name('brand.delete');
+Route::get('/motorcycles', 'App\Http\Controllers\MotorcycleController@index')->name('motorcycle.index');
+Route::get('/motorcycles/create', 'App\Http\Controllers\MotorcycleController@create')->name('motorcycle.create');
+Route::post('/motorcycles/save', 'App\Http\Controllers\MotorcycleController@save')->name('motorcycle.save');
+Route::get('/motorcycles/{id}', 'App\Http\Controllers\MotorcycleController@show')->name('motorcycle.show');
+Route::get('/motorcycles/delete/{id}', 'App\Http\Controllers\MotorcycleController@delete')->name('motorcycle.delete');

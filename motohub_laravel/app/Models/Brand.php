@@ -14,7 +14,7 @@ class Brand extends Model
 
     protected $fillable = ['name', 'country_origin', 'foundation_year', 'logo_image', 'description'];
 
-    public static function validateBrandRequest(Request $request)
+    public static function validateBrandRequest(Request $request): void
     {
         $request->validate([
             'name' => 'required',

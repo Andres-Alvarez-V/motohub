@@ -5,12 +5,34 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Http\Request;
 
 class Motorcycle extends Model
 {
     use HasFactory;
 
     protected $fillable = ['name', 'model', 'category', 'image', 'description', 'price', 'stock', 'state', 'brand_id'];
+
+    
+    public static function validateMotorcycleRequest(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'model' => 'required',
+            'category' => 'required',
+            'image' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+            'state' => 'required',
+            'brand_id' => 'required'
+        ]);
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
     public function getName(): string
     {
