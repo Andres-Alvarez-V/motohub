@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
 
 class Brand extends Model
 {
@@ -14,7 +14,7 @@ class Brand extends Model
 
     protected $fillable = ['name', 'country_origin', 'foundation_year', 'logo_image', 'description'];
 
-    public function validateBrandRequest(Request $request)
+    public static function validateBrandRequest(Request $request)
     {
         $request->validate([
             'name' => 'required',

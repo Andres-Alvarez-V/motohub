@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
@@ -36,21 +37,15 @@ class BrandController extends Controller
         return view('brand.create')->with('viewData', $viewData);
     }
 
-    public function save(Request $request)
+    public function save(Request $request): RedirectResponse
     {
-        $request->validate([
-            'name' => 'required',
-            'country_origin' => 'required',
-            'foundation_year' => 'required',
-            'logo_image' => 'required',
-            'description' => 'required',
-        ]);
+        Brand::validateBrandRequest($request);
         Brand::create($request->only(['name', 'country_origin', 'foundation_year', 'logo_image', 'description']));
 
         return back();
     }
 
-    public function delete(string $id)
+    public function delete(string $id): RedirectResponse
     {
         Brand::destroy($id);
 
