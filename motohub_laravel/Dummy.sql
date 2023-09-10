@@ -1,0 +1,1 @@
+INSERT INTO brands (id, name, country_origin, foundation_year, logo_image, description) VALUES (1, 'Yamaha', 'Japan', 1800, 'yamaha.jpg', 'The description'), (2, 'Honda', 'Japan', 1801, 'honda.jpg', 'The description'), (3, 'Suzuki', 'Japan', 1803, 'suzuki.jpg', 'The description'), (4, 'Kawasaki', 'Japan', 1804, 'kawasaki.jpg', 'The description');
