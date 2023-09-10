@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Motorcycle;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -47,6 +48,7 @@ class BrandController extends Controller
 
     public function delete(string $id): RedirectResponse
     {
+        Motorcycle::where('brand_id', $id)->delete();
         Brand::destroy($id);
 
         return redirect()->route('brand.index');

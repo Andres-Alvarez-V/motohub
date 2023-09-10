@@ -11,7 +11,7 @@
     <a href="/brands/delete/{{$viewData["id"]}}" class="btn bg-primary text-white my-2">Delete</a>
     <ul class="list-group">
     @foreach ($viewData["brand"]->getMotorcycles() as $motorcycle)
-        <li class="list-group-item">{{$motorcycle["model"]}}</li>
+        <li class="list-group-item">{{$motorcycle["name"]}}</li>
     @endforeach
     </ul>
 </div>
