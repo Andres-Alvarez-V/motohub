@@ -10,6 +10,6 @@
     <p class="card-text my-2">{{ $viewData["description"] }}</p>
     <p class="card-text my-2">Stock: {{ $viewData["stock"] }}</p>
     <p class="card-text my-2">${{ $viewData["price"] }}</p>
-    <a href="/brands/delete/{{$viewData["id"]}}" class="btn bg-primary text-white my-2">Delete</a>
+    <a href="/admin/motorcycles/delete/{{$viewData["id"]}}" class="btn bg-primary text-white my-2">Delete</a>
 </div>
 @endsection

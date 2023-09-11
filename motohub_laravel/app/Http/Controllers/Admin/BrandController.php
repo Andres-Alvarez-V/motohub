@@ -1,21 +1,28 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Brand;
 use App\Models\Motorcycle;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class BrandController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['auth', 'role.admin']);
+    }
+
     public function index(): View
     {
         $viewData['brands'] = Brand::with('motorcycles')->get();
         $viewData['title'] = 'Brands';
 
-        return view('brand.index')->with('viewData', $viewData);
+        return view('admin.brand.index')->with('viewData', $viewData);
     }
 
     public function show(int $id): View
@@ -28,14 +35,14 @@ class BrandController extends Controller
         $viewData['id'] = $brand->getId();
         $viewData['logo_image'] = $brand->getLogoImage();
 
-        return view('brand.show')->with('viewData', $viewData);
+        return view('admin.brand.show')->with('viewData', $viewData);
     }
 
     public function create(): View
     {
         $viewData['title'] = 'Create Brand';
 
-        return view('brand.create')->with('viewData', $viewData);
+        return view('admin.brand.create')->with('viewData', $viewData);
     }
 
     public function save(Request $request): RedirectResponse
@@ -43,7 +50,7 @@ class BrandController extends Controller
         Brand::validateBrandRequest($request);
         Brand::create($request->only(['name', 'country_origin', 'foundation_year', 'logo_image', 'description']));
 
-        return back();
+        return redirect()->route('admin.brand.index');
     }
 
     public function delete(string $id): RedirectResponse
@@ -51,6 +58,6 @@ class BrandController extends Controller
         Motorcycle::where('brand_id', $id)->delete();
         Brand::destroy($id);
 
-        return redirect()->route('brand.index');
+        return redirect()->route('admin.brand.index');
     }
 }
