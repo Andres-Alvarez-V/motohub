@@ -29,3 +29,11 @@ Route::get('/motorcycles/create', 'App\Http\Controllers\MotorcycleController@cre
 Route::post('/motorcycles/save', 'App\Http\Controllers\MotorcycleController@save')->name('motorcycle.save');
 Route::get('/motorcycles/{id}', 'App\Http\Controllers\MotorcycleController@show')->name('motorcycle.show');
 Route::get('/motorcycles/delete/{id}', 'App\Http\Controllers\MotorcycleController@delete')->name('motorcycle.delete');
+
+Route::prefix('/orders')->group(function () {
+    Route::get('/', 'App\Http\Controllers\OrderController@index')->name('order.index');
+    Route::post('/', 'App\Http\Controllers\OrderController@save')->name('order.save');
+    Route::post('/add', 'App\Http\Controllers\OrderController@add')->name('order.add');
+    Route::delete('/', 'App\Http\Controllers\OrderController@deleteAll')->name('order.deleteAll');
+    Route::delete('/{id}', 'App\Http\Controllers\OrderController@delete')->name('order.delete');
+});
