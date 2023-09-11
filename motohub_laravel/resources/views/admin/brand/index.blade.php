@@ -4,7 +4,7 @@
 <div class="row">
     <h1>Brands</h1>
     <div style="margin-bottom: 20px;">
-        <a href="{{ route('brand.create') }}" class="btn btn-primary">Create new brand</a>
+        <a href="{{ route('admin.brand.create') }}" class="btn btn-primary">Create new brand</a>
     </div>
     @foreach ($viewData["brands"] as $brand)
     <div class="col-md-4 col-lg-3 mb-2 d-flex align-items-stretch">
@@ -17,7 +17,7 @@
                     class="card-img-top w-75"></div>
             <div class="card-body">
                 <p class="card-text">{{$brand["description"]}}</p>
-                <a href="{{ route('brand.show', ['id'=> $brand->getId()]) }}" class="btn btn-primary">Show</a>
+                <a href="{{ route('admin.brand.show', ['id'=> $brand->getId()]) }}" class="btn btn-primary">Show</a>
             </div>
             <div class="card-footer text-center text-muted">
                 {{$brand["foundation_year"]}}

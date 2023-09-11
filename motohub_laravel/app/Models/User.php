@@ -13,7 +13,7 @@ class User extends Authenticatable
      * User ATTRIBUTES
      * $this->attributes['id'] - int - contains the User primary key (id)
      * $this->attributes['name'] - string - contains the User name
-     * $this->attributes['birthDate'] - string - contains the User birthDate
+     * $this->attributes['birth_date'] - string - contains the User birthDate
      * $this->attributes['address'] - string - contains the User address
      * $this->attributes['email'] - string - contains the User email
      * $this->attributes['password'] - string - contains the User password
@@ -28,7 +28,7 @@ class User extends Authenticatable
 
     protected $fillable = [
         'name',
-        'birthDate',
+        'birth_date',
         'address',
         'email',
         'password',
@@ -57,12 +57,12 @@ class User extends Authenticatable
 
     public function setBirthDate(string $birthDate): void
     {
-        $this->attributes['birthDate'] = $birthDate;
+        $this->attributes['birth_date'] = $birthDate;
     }
 
     public function getBirthDate(): string
     {
-        return $this->attributes['birthDate'];
+        return $this->attributes['birth_date'];
     }
 
     public function setAddress(string $address): void

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
+use App\Models\Brand;
 
 class Motorcycle extends Model
 {
@@ -139,8 +140,3 @@ class Motorcycle extends Model
         $this->brand = $brand;
     }
 }
-
-// Diagrama esta horrible
-// corregir nomrbes del diagrama de clases
-// Cardinalidades
-//
