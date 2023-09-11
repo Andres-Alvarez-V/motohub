@@ -13,6 +13,11 @@ use Illuminate\View\View;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['lang']);
+    }
+
     public function index(Request $request): View
     {
         $orderData = $request->session()->get('orderData');
@@ -31,10 +36,10 @@ class OrderController extends Controller
     {
         Order::validateAdd($request);
 
-        $motorcycle_id = $request->input('motorcycle_id');
+        $motorcycleId = $request->input('motorcycle_id');
         $quantity = $request->input('quantity');
 
-        $motorcycle = Motorcycle::findOrFail($motorcycle_id)->toArray();
+        $motorcycle = Motorcycle::findOrFail($motorcycleId)->toArray();
 
         $orderData = $request->session()->get('orderData');
         $orderItems = $orderData['orderItems'] ?? [];
@@ -82,13 +87,13 @@ class OrderController extends Controller
 
         Order::validateSave($request);
 
-        $user_id = auth()->user()->id;
-        $user = User::findOrFail($user_id);
+        $userId = auth()->user()->id;
+        $user = User::findOrFail($userId);
 
         $userBalance = $user->getBalance();
 
         if ($userBalance < $subTotal + config('constants.SHIPPING_VALUE')) {
-            return back()->withErrors(['message' => 'No tienes suficiente dinero para realizar esta compra']);
+            return back()->withErrors(['message' => trans('messages.orderInsufficientFunds')]);
         }
 
         $user->update([
@@ -96,7 +101,7 @@ class OrderController extends Controller
         ]);
 
         $order = Order::create([
-            'user_id' => $user_id,
+            'user_id' => $userId,
             'payment' => 'approved',
             'shipping_address' => $request->input('shipping_address') ?? $user->getAddress(),
             'shipping_value' => config('constants.SHIPPING_VALUE'),
@@ -115,8 +120,6 @@ class OrderController extends Controller
         }
         $request->session()->forget('orderData');
 
-        $viewData['message'] = 'Orden guardada con éxito';
-
-        return view('order.save')->with('viewData', $viewData);
+        return view('order.save');
     }
 }

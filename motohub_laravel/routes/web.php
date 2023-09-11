@@ -20,6 +20,7 @@ Route::get('/lang/{locale}', 'App\Http\Controllers\LangController@changeLocale')
 
 Route::get('/', 'App\Http\Controllers\User\HomeController@index')->name('user.index');
 Route::get('/home', 'App\Http\Controllers\User\HomeController@home')->name('user.home');
+
 Route::prefix('/admin')->group(function(){
     Route::get('/home', 'App\Http\Controllers\Admin\HomeController@home')->name('admin.home');
 
@@ -38,4 +39,12 @@ Route::prefix('/admin')->group(function(){
         Route::get('/{id}', 'App\Http\Controllers\Admin\BrandController@show')->name('admin.brand.show');
         Route::get('/delete/{id}', 'App\Http\Controllers\Admin\BrandController@delete')->name('admin.brand.delete');
     });
+});
+
+Route::prefix('/orders')->group(function () {
+    Route::get('/', 'App\Http\Controllers\OrderController@index')->name('order.index');
+    Route::post('/', 'App\Http\Controllers\OrderController@save')->name('order.save');
+    Route::post('/add', 'App\Http\Controllers\OrderController@add')->name('order.add');
+    Route::delete('/', 'App\Http\Controllers\OrderController@deleteAll')->name('order.deleteAll');
+    Route::delete('/{id}', 'App\Http\Controllers\OrderController@delete')->name('order.delete');
 });

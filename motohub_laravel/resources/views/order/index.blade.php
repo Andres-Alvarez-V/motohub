@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Orden')
+@section('title', '- ' . trans('messages.orderTitle'))
 @section('content')
 <div class="container">
     <div class="row">
@@ -10,43 +10,35 @@
                 @endforeach
             </ul>
         @endif
-        <h1>Orden</h1>
-        <h3>SubTotal: ${{$viewData["subTotal"]}}</h3>
+
+        <h1>{{ trans('messages.shoppingCart') }}</h1>
+        <h3>{{ trans('messages.subTotal') }}: ${{$viewData["subTotal"]}}</h3>
 
         @if($viewData["subTotal"] > 0)
-            <h3>Total: ${{$viewData["total"]}}</h3>
-            <h5>Costo de envío: ${{$viewData["shippingValue"]}}</h5>
+            <h3>{{ trans('messages.total') }}: ${{$viewData["total"]}}</h3>
+            <h5>{{ trans('messages.shippingValue') }}: ${{$viewData["shippingValue"]}}</h5>
         @endif
-
-        <form method="post" action="{{ route('order.add') }}">
-            @csrf
-            <input type="number" name="motorcycle_id" value="9" hidden>
-            <label for="quantity">Cantidad</label>
-            <input id="quantity" type="number" value="1" name="quantity">
-            <input type="submit" value="Enviar">
-        </form>
-
 
         @foreach($viewData["orderItems"] as $key => $orderItem)
             <div class="col-6 mt-3">
                 <div class="card m-auto w-75" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title fw-bold">Nombre</h5>
+                        <h5 class="card-title fw-bold">{{ trans('messages.name') }}</h5>
                         <p class="card-text">{{ $orderItem["motorcycle"]["name"] }}</p>
 
-                        <h5 class="card-title fw-bold">Imagen</h5>
+                        <h5 class="card-title fw-bold">{{ trans('messages.image') }}</h5>
                         <p class="card-text">{{ $orderItem["motorcycle"]["image"] }}</p>
 
-                        <h5 class="card-title fw-bold">Precio</h5>
+                        <h5 class="card-title fw-bold">{{ trans('messages.price') }}</h5>
                         <p class="card-text">{{ $orderItem["motorcycle"]["price"] }}</p>
 
-                        <h5 class="card-title fw-bold">Cantidad</h5>
+                        <h5 class="card-title fw-bold">{{ trans('messages.quantity') }}</h5>
                         <p class="card-text">{{ $orderItem["quantity"] }}</p>
 
                         <form action="{{ route('order.delete', ['id' => $key]) }}" method="post">
                             @csrf
                             {{ method_field('delete') }}
-                            <button class="btn btn-danger" type="submit">Eliminar de la orden</button>
+                            <button class="btn btn-danger" type="submit">{{ trans('messages.delete') }}</button>
                         </form>
                     </div>
                 </div>
@@ -58,7 +50,7 @@
             <form action="{{ route('order.deleteAll') }}" method="post" class="d-inline-block">
                 @csrf
                 {{ method_field('delete') }}
-                <button class="btn btn-danger" type="submit">Eliminar todos</button>
+                <button class="btn btn-danger" type="submit">{{ trans('messages.deleteAll') }}</button>
             </form>
 
             <form method="post" action="{{ route('order.save') }}">
@@ -68,7 +60,7 @@
                     'btn-success',
                     'disabled' => $viewData["subTotal"] == 0
                 ])>
-                    Comprar
+                    {{ trans('messages.buy') }}
                 </button>
             </form>
         </div>
