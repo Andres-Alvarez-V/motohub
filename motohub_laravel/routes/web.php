@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('/lang/{locale}', 'App\Http\Controllers\LangController@changeLocale')->name('lang.change');
+
 Route::get('/', 'App\Http\Controllers\User\HomeController@index')->name('user.index');
 Route::get('/home', 'App\Http\Controllers\User\HomeController@home')->name('user.home');
 Route::prefix('/admin')->group(function(){
