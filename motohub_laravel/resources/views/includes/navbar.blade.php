@@ -50,6 +50,16 @@
                     @endif
 
                     <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+                    <li class="nav-item">
+                        <a href="{{ route('user.motorcycle.index') }}" class="nav-link dropdown-toggle text-white">
+                            {{ trans('messages.motorcycles') }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('user.brand.index') }}" class="nav-link dropdown-toggle text-white">
+                            {{ trans('messages.brands') }}
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}

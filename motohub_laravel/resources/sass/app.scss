@@ -66,3 +66,17 @@
     height: 100%;
     object-fit: scale-down;
 }
+
+.item-card{
+    background-color: $secundary-color;
+}
+
+.item-card-inside{
+    background-color: $third-color;
+    color: $white-color;
+    padding: 10px;
+}
+
+.btn-primary{
+    background-color: $primary-color;
+}
