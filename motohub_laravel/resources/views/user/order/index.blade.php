@@ -15,8 +15,8 @@
         <h3>{{ trans('messages.subTotal') }}: ${{$viewData["subTotal"]}}</h3>
 
         @if($viewData["subTotal"] > 0)
-            <h3>{{ trans('messages.total') }}: ${{$viewData["total"]}}</h3>
-            <h5>{{ trans('messages.shippingValue') }}: ${{$viewData["shippingValue"]}}</h5>
+        <h3>{{ trans('messages.total') }}: ${{$viewData["total"]}}</h3>
+        <h5>{{ trans('messages.shippingValue') }}: ${{$viewData["shippingValue"]}}</h5>
         @endif
 
         @foreach($viewData["orderItems"] as $key => $orderItem)
@@ -46,18 +46,20 @@
         @endforeach
     </div>
     <div class="row mt-5">
-        <div class="col-12 d-flex justify-content-center">
-            <form action="{{ route('order.deleteAll') }}" method="post" class="d-inline-block">
+        <div class="col-2 ms-auto">
+            <form action="{{ route('order.deleteAll') }}" method="post">
                 @csrf
                 {{ method_field('delete') }}
-                <button class="btn btn-danger" type="submit">{{ trans('messages.deleteAll') }}</button>
+                <button class="btn btn-danger w-100" type="submit">{{ trans('messages.deleteAll') }}</button>
             </form>
-
+        </div>
+        <div class="col-2 me-auto">
             <form method="post" action="{{ route('order.save') }}">
                 @csrf
                 <button type="submit" @class([
                     'btn',
-                    'btn-success',
+                    'btn-primary-app',
+                    'w-100',
                     'disabled' => $viewData["subTotal"] == 0
                 ])>
                     {{ trans('messages.buy') }}

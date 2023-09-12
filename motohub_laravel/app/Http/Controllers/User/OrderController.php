@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace app\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Motorcycle;
@@ -15,7 +15,7 @@ class OrderController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['lang']);
+        $this->middleware(['auth', 'lang']);
     }
 
     public function index(Request $request): View
@@ -29,7 +29,7 @@ class OrderController extends Controller
         $viewData['orderItems'] = $orderItems;
         $viewData['shippingValue'] = config('constants.SHIPPING_VALUE');
 
-        return view('order.index')->with('viewData', $viewData);
+        return view('user.order.index')->with('viewData', $viewData);
     }
 
     public function add(Request $request): RedirectResponse
@@ -120,6 +120,6 @@ class OrderController extends Controller
         }
         $request->session()->forget('orderData');
 
-        return view('order.save');
+        return view('user.order.save');
     }
 }

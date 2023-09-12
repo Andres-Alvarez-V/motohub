@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 use App\Models\Brand;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Motorcycle extends Model
 {
@@ -14,7 +16,7 @@ class Motorcycle extends Model
 
     protected $fillable = ['name', 'model', 'category', 'image', 'description', 'price', 'stock', 'state', 'brand_id'];
 
-    
+
     public static function validateMotorcycleRequest(Request $request)
     {
         $request->validate([
@@ -138,5 +140,20 @@ class Motorcycle extends Model
     public function setBrand(Brand $brand): void
     {
         $this->brand = $brand;
+    }
+
+    public function orderItems(): HasMany
+    {
+        return $this->HasMany(OrderItem::class);
+    }
+
+    public function getOrderItems(): Collection
+    {
+        return $this->orderItems;
+    }
+
+    public function setOrderItems(Collection $orderItems): void
+    {
+        $this->orderItems = $orderItems;
     }
 }

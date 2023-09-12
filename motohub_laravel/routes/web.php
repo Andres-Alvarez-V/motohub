@@ -42,9 +42,9 @@ Route::prefix('/admin')->group(function(){
 });
 
 Route::prefix('/orders')->group(function () {
-    Route::get('/', 'App\Http\Controllers\OrderController@index')->name('order.index');
-    Route::post('/', 'App\Http\Controllers\OrderController@save')->name('order.save');
-    Route::post('/add', 'App\Http\Controllers\OrderController@add')->name('order.add');
-    Route::delete('/', 'App\Http\Controllers\OrderController@deleteAll')->name('order.deleteAll');
-    Route::delete('/{id}', 'App\Http\Controllers\OrderController@delete')->name('order.delete');
+    Route::get('/', 'App\Http\Controllers\User\OrderController@index')->name('order.index');
+    Route::post('/', 'App\Http\Controllers\User\OrderController@save')->name('order.save');
+    Route::post('/add', 'App\Http\Controllers\User\OrderController@add')->name('order.add');
+    Route::delete('/', 'App\Http\Controllers\User\OrderController@deleteAll')->name('order.deleteAll');
+    Route::delete('/{id}', 'App\Http\Controllers\User\OrderController@delete')->name('order.delete');
 });

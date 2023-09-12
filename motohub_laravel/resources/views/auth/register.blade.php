@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-6">
-            <div class="card bg-app-secundary-color">
+            <div class="card bg-color-secondary-app mt-5">
                 <div class="card-header-app white-text-app">{{ trans('messages.register') }}</div>
 
                 <div class="card-body">
@@ -116,7 +116,7 @@
 
                         <div class="row mb-0 d-flex justify-content-center">
                             <button type="submit" class="btn btn-primary-app col-6">
-                                {{ __('Register') }}
+                                {{ trans('messages.register') }}
                             </button>
                         </div>
                     </form>

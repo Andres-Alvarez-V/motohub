@@ -3,10 +3,11 @@
 return [
     'register'=>'Registrarse',
     'login'=>'Iniciar sesión',
-    'welcome' => 'Bienvenido a nuestra aplicación',
-    'adminNav' => 'Administrador',
-    'brandNav' => 'Marcas',
-    'motorcycleNav' => 'Motos',
+    'logout' => 'Cerrar sesión',
+    'rememberMe' => 'Recordarme',
+    'admin' => 'Administrador',
+    'brands' => 'Marcas',
+    'motorcycles' => 'Motos',
     'name' => 'Nombre',
     'birthDate' => 'Fecha de nacimiento',
     'address' => 'Dirección',
@@ -27,4 +28,5 @@ return [
     'delete' => 'Eliminar',
     'deleteAll' => 'Eliminar todos',
     'buy' => 'Comprar',
+    'language' => 'Lenguaje',
 ];
