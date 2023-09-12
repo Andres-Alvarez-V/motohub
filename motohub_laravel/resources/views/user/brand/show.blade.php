@@ -10,7 +10,7 @@
     <p class="card-text my-2">{{ $viewData["description"] }}</p>
     <ul class="list-group">
     @foreach ($viewData["brand"]->getMotorcycles() as $motorcycle)
-        <li class="list-group-item">{{$motorcycle["name"]}}</li>
+        <li class="list-group-item">{{$motorcycle->getName()}}</li>
     @endforeach
     </ul>
 </div>

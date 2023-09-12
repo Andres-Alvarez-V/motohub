@@ -29,4 +29,5 @@ return [
     'deleteAll' => 'Delete All',
     'buy' => 'Buy',
     'language' => 'Language',
+    'show' => 'Show'
 ];
