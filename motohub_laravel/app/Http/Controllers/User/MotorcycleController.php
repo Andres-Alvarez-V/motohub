@@ -16,14 +16,14 @@ class MotorcycleController extends Controller
 
     public function index(): View
     {
-        $viewData['motorcycles'] = Motorcycle::all();
+        $viewData['motorcycles'] = Motorcycle::where('is_active', true)->get();;
 
         return view('user.motorcycle.index')->with('viewData', $viewData);
     }
 
     public function show(int $id): View
     {
-        $motorcycle = Motorcycle::findOrFail($id);
+        $motorcycle = Motorcycle::where('is_active', true)->findOrFail($id);
         $viewData['motorcycle'] = $motorcycle;
 
         return view('user.motorcycle.show')->with('viewData', $viewData);

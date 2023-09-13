@@ -30,7 +30,8 @@ Route::prefix('/admin')->group(function(){
         Route::get('/create', 'App\Http\Controllers\Admin\MotorcycleController@create')->name('admin.motorcycle.create');
         Route::post('/save', 'App\Http\Controllers\Admin\MotorcycleController@save')->name('admin.motorcycle.save');
         Route::get('/{id}', 'App\Http\Controllers\Admin\MotorcycleController@show')->name('admin.motorcycle.show');
-        Route::get('/delete/{id}', 'App\Http\Controllers\Admin\MotorcycleController@delete')->name('admin.motorcycle.delete');
+        Route::get('/dissable/{id}', 'App\Http\Controllers\Admin\MotorcycleController@dissable')->name('admin.motorcycle.dissable');
+        Route::get('/enable/{id}', 'App\Http\Controllers\Admin\MotorcycleController@enable')->name('admin.motorcycle.enable');
     });
 
     Route::prefix('/brands')->group(function(){

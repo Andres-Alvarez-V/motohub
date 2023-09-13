@@ -126,19 +126,9 @@ class User extends Authenticatable
         return $this->attributes['role'];
     }
 
-    public function setCreatedAt(string $createdAt): void
-    {
-        $this->attributes['created_at'] = $createdAt;
-    }
-
     public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
-    }
-
-    public function setUpdatedAt(string $updatedAt): void
-    {
-        $this->attributes['updated_at'] = $updatedAt;
     }
 
     public function getUpdatedAt(): string

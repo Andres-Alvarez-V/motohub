@@ -45,20 +45,11 @@ class OrderItem extends Model
         return $this->attributes['created_at'];
     }
 
-    public function setCreatedAt(string $createdAt): void
-    {
-        $this->attributes['created_at'] = $createdAt;
-    }
-
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
     }
 
-    public function setUpdatedAt(string $updatedAt): void
-    {
-        $this->attributes['updated_at'] = $updatedAt;
-    }
 
     // Relationships
     public function order(): BelongsTo

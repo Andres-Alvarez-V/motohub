@@ -26,6 +26,7 @@ class Motorcycle extends Model
      * $this->attributes['price'] - float - contains the Motorcycle item price
      * $this->attributes['stock'] - int - contains the Motorcycle item stock
      * $this->attributes['state'] - string - contains the Motorcycle item state
+     * $this->attributes['is_active'] - boolean - contains the Motorcycle item status to determine if it can be shown
      * $this->attributes['created_at'] - string - contains the Motorcycle creation date
      * $this->attributes['updated_at'] - string - contains the Motorcycle update date
      * $this->brand - Brand - contains the associated brand
@@ -144,14 +145,19 @@ class Motorcycle extends Model
         $this->brand_id = $id;
     }
 
+    public function getIsActive(): bool
+    {
+        return $this->is_active;
+    }
+
+    public function setIsActive(bool $isActive): void
+    {
+        $this->is_active = $isActive;
+    }
+
     public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
-    }
-
-    public function setCreatedAt(string $createdAt): void
-    {
-        $this->attributes['created_at'] = $createdAt;
     }
 
     public function getUpdatedAt(): string
@@ -159,10 +165,6 @@ class Motorcycle extends Model
         return $this->attributes['updated_at'];
     }
 
-    public function setUpdatedAt(string $updatedAt): void
-    {
-        $this->attributes['updated_at'] = $updatedAt;
-    }
 
     //Relationships
 
