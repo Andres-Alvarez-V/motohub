@@ -24,13 +24,15 @@
                 <div class="card m-auto w-75" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title fw-bold">{{ trans('messages.name') }}</h5>
-                        <p class="card-text">{{ $orderItem["motorcycle"]["name"] }}</p>
+                        <p class="card-text">{{ $orderItem["motorcycle"]->getName() }}</p>
 
                         <h5 class="card-title fw-bold">{{ trans('messages.image') }}</h5>
-                        <p class="card-text">{{ $orderItem["motorcycle"]["image"] }}</p>
+                        <div class="m-auto motorcycle-container-app">
+                            <img class="motorcycle-image-app" src="{{ asset('images/motorcycles/' . $orderItem["motorcycle"]->getImage())}}">
+                        </div>
 
                         <h5 class="card-title fw-bold">{{ trans('messages.price') }}</h5>
-                        <p class="card-text">{{ $orderItem["motorcycle"]["price"] }}</p>
+                        <p class="card-text">{{ $orderItem["motorcycle"]->getPrice() }}</p>
 
                         <h5 class="card-title fw-bold">{{ trans('messages.quantity') }}</h5>
                         <p class="card-text">{{ $orderItem["quantity"] }}</p>

@@ -6,7 +6,7 @@
     <h1>
         {{ $viewData["motorcycle"]->getName() }}
     </h1>
-    <img class="my-2" style="width: 200px; height: 150px" src="{{$viewData['motorcycle']->getImage()}}" alt="logo">
+    <img class="my-2" style="width: 200px; height: 150px" src="{{ asset('images/motorcycles/' . $viewData["motorcycle"]->getImage())}}" alt="logo">
     <p class="card-text my-2">{{ $viewData["motorcycle"]->getDescription() }}</p>
     <p class="card-text my-2">Stock: {{ $viewData["motorcycle"]->getStock() }}</p>
     <p class="card-text my-2">${{ $viewData["motorcycle"]->getPrice() }}</p>

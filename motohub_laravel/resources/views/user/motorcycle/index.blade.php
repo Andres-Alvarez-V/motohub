@@ -12,7 +12,7 @@
                 </div>
                 <div class="d-flex justify-content-center item-card-inside-app"
                     style="height: 100%;width: 100%; overflow: hidden; margin: 0 auto"><img
-                        src="{{$motorcycle->getImage()}}" class="card-img-top w-75"></div>
+                        src="{{ asset('images/motorcycles/' . $motorcycle->getImage())}}" class="card-img-top w-75"></div>
                 <div class="card-body item-card-inside-app">
                     <p class="card-text">{{$motorcycle->getDescription()}}</p>
                     <a href="{{ route('user.motorcycle.show', ['id'=> $motorcycle->getId()]) }}"
