@@ -29,4 +29,6 @@ return [
     'deleteAll' => 'Eliminar todos',
     'buy' => 'Comprar',
     'language' => 'Lenguaje',
+    'show' => 'Mostrar',
+    'addToCart' => 'Agregar al carrito',
 ];
