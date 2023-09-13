@@ -11,18 +11,18 @@
         <div class="col-md-4 col-lg-3 mb-2 d-flex align-items-stretch">
             <div class="card d-flex align-items-stretch w-75">
                 <div class="card-header">
-                    {{$brand["name"]}}
+                    {{$brand->getName()}}
                 </div>
                 <div class="d-flex justify-content-center"
                     style="height: 100%;width: 100%; overflow: hidden; margin: 0 auto"><img
                         src="{{$brand->getLogoImage()}}" class="card-img-top w-75"></div>
                 <div class="card-body">
-                    <p class="card-text">{{$brand["description"]}}</p>
+                    <p class="card-text">{{$brand->getDescription()}}</p>
                     <a href="{{ route('admin.brand.show', ['id'=> $brand->getId()]) }}"
                         class="btn btn-primary">{{ trans('messages.show') }}</a>
                 </div>
                 <div class="card-footer text-center text-muted">
-                    {{$brand["foundation_year"]}}
+                    {{$brand->getFoundationYear()}}
                 </div>
             </div>
         </div>
