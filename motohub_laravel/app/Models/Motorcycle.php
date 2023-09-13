@@ -14,6 +14,23 @@ class Motorcycle extends Model
 {
     use HasFactory;
 
+    /**
+     * Motorcycle ITEM ATTRIBUTES
+     * $this->attributes['id'] - int - contains the Motorcycle item primary key (id)
+     * $this->attributes['name'] - string - contains the Motorcycle item name
+     * $this->attributes['brand_id'] - int - contains the Motorcycle item brand foreign key (brand_id)
+     * $this->attributes['model'] - string - contains the Motorcycle item model
+     * $this->attributes['category'] - string - contains the Motorcycle item category
+     * $this->attributes['image'] - string - contains the Motorcycle item image
+     * $this->attributes['description'] - string - contains the Motorcycle item description
+     * $this->attributes['price'] - float - contains the Motorcycle item price
+     * $this->attributes['stock'] - int - contains the Motorcycle item stock
+     * $this->attributes['state'] - string - contains the Motorcycle item state
+     * $this->attributes['created_at'] - string - contains the Motorcycle creation date
+     * $this->attributes['updated_at'] - string - contains the Motorcycle update date
+     * $this->brand - Brand - contains the associated brand
+     * $this->orderItems - OrderItem[] - contains the associated order items
+     */
     protected $fillable = ['name', 'model', 'category', 'image', 'description', 'price', 'stock', 'state', 'brand_id'];
 
 
@@ -126,6 +143,28 @@ class Motorcycle extends Model
     {
         $this->brand_id = $id;
     }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function setCreatedAt(string $createdAt): void
+    {
+        $this->attributes['created_at'] = $createdAt;
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    public function setUpdatedAt(string $updatedAt): void
+    {
+        $this->attributes['updated_at'] = $updatedAt;
+    }
+
+    //Relationships
 
     public function brand(): BelongsTo
     {

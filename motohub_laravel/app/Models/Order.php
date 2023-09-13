@@ -23,6 +23,8 @@ class Order extends Model
      * $this->attributes['sub_total'] - double - contains the order sub total value
      * $this->attributes['total'] - double - contains the order total value
      * $this->attributes['active'] - boolean - contains the order status
+     * $this->attributes['created_at'] - string - contains the Order creation date
+     * $this->attributes['updated_at'] - string - contains the Order update date
      * $this->user - User - contains the associated user
      * $this->orderItems - OrderItem[] - contains the associated order items
      */
@@ -130,6 +132,26 @@ class Order extends Model
     public function setUserId(int $userId): void
     {
         $this->attributes['user_id'] = $userId;
+    }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function setCreatedAt(string $createdAt): void
+    {
+        $this->attributes['created_at'] = $createdAt;
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    public function setUpdatedAt(string $updatedAt): void
+    {
+        $this->attributes['updated_at'] = $updatedAt;
     }
 
     // Relationships
