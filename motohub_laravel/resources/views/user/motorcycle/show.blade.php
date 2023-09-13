@@ -10,6 +10,11 @@
     <p class="card-text my-2">{{ $viewData["motorcycle"]->getDescription() }}</p>
     <p class="card-text my-2">Stock: {{ $viewData["motorcycle"]->getStock() }}</p>
     <p class="card-text my-2">${{ $viewData["motorcycle"]->getPrice() }}</p>
-    <a href="/admin/motorcycles/delete/{{$viewData["id"]}}" class="btn bg-primary text-white my-2">Delete</a>
+    <form method="POST" action="{{ route('order.add') }}">
+        @csrf
+        <input type="hidden" name="motorcycle_id" value="{{ $viewData["motorcycle"]->getId() }}">
+        <input type="number" name="quantity" placeholder="0">
+        <button type="submit" class=" btn btn-primary">{{ trans('messages.addToCart') }}</button>
+    </form>
 </div>
 @endsection

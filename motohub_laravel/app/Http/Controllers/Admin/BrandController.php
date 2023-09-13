@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Brand;
 use App\Models\Motorcycle;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -29,11 +29,6 @@ class BrandController extends Controller
     {
         $brand = Brand::findOrFail($id);
         $viewData['brand'] = $brand;
-        $viewData['title'] = $brand->getName();
-        $viewData['name'] = $brand->getName();
-        $viewData['description'] = $brand->getDescription();
-        $viewData['id'] = $brand->getId();
-        $viewData['logo_image'] = $brand->getLogoImage();
 
         return view('admin.brand.show')->with('viewData', $viewData);
     }

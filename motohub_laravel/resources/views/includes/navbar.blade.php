@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" href="{{ route('user.index') }}">Home</a>
+                    <a class="nav-link active text-white" href="{{ route('user.index') }}">{{ trans('messages.home') }}</a>
                 </li>
 
                 @guest
@@ -42,14 +42,24 @@
                 @else
                     @if (Auth::user()->role == config('constants.ROLE_ADMIN'))
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('admin.brand.index') }}">{{ trans('messages.brands') }}</a>
+                            <a class="nav-link text-white" href="{{ route('admin.brand.index') }}">{{ trans('messages.adminBrands') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white"href="{{ route('admin.motorcycle.index') }}">{{ trans('messages.motorcycles') }}</a>
+                            <a class="nav-link text-white"href="{{ route('admin.motorcycle.index') }}">{{ trans('messages.adminMotorcycles') }}</a>
                         </li>
                     @endif
 
                     <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+                    <li class="nav-item">
+                        <a href="{{ route('user.motorcycle.index') }}" class="nav-link dropdown-toggle text-white">
+                            {{ trans('messages.motorcycles') }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('user.brand.index') }}" class="nav-link dropdown-toggle text-white">
+                            {{ trans('messages.brands') }}
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}

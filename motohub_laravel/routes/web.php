@@ -22,6 +22,7 @@ Route::get('/', 'App\Http\Controllers\User\HomeController@index')->name('user.in
 Route::get('/home', 'App\Http\Controllers\User\HomeController@home')->name('user.home');
 
 Route::prefix('/admin')->group(function(){
+    //ADMIN PATHS
     Route::get('/home', 'App\Http\Controllers\Admin\HomeController@home')->name('admin.home');
 
     Route::prefix('/motorcycles')->group(function(){
@@ -47,4 +48,14 @@ Route::prefix('/orders')->group(function () {
     Route::post('/add', 'App\Http\Controllers\User\OrderController@add')->name('order.add');
     Route::delete('/', 'App\Http\Controllers\User\OrderController@deleteAll')->name('order.deleteAll');
     Route::delete('/{id}', 'App\Http\Controllers\User\OrderController@delete')->name('order.delete');
+});
+
+Route::prefix('/brands')->group(function(){
+    Route::get('/', 'App\Http\Controllers\User\BrandController@index')->name('user.brand.index');
+    Route::get('/{id}', 'App\Http\Controllers\User\BrandController@show')->name('user.brand.show');
+});
+
+Route::prefix('/motorcycles')->group(function(){
+    Route::get('/', 'App\Http\Controllers\User\MotorcycleController@index')->name('user.motorcycle.index');
+    Route::get('/{id}', 'App\Http\Controllers\User\MotorcycleController@show')->name('user.motorcycle.show');
 });

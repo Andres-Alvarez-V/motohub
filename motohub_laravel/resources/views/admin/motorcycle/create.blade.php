@@ -1,11 +1,11 @@
 @extends('layouts.app')
-@section('title', $viewData["title"])
+@section('title', trans('messages.motorcycles'))
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{$viewData["title"]}}</div>
+                <div class="card-header">{{ trans('messages.motorcycles') }}</div>
                 <div class="card-body">
                     @if($errors->any())
                     <ul id="errors" class="alert alert-danger list-unstyled">
@@ -30,7 +30,7 @@
                         </select>
                         <input type="number" class="form-control mb-2" placeholder="Enter a stock" name="stock" value="{{ old('stock') }}" />
                         <input type="number" class="form-control mb-2" placeholder="Enter a price" name="price" value="{{ old('price') }}" />
-                        <input type="submit" class="btn btn-primary" value="Send" />
+                        <input type="submit" class="btn btn-primary" value="{{ trans('messages.send') }}" />
                     </form>
                 </div>
             </div>

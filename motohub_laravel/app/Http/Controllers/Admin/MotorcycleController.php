@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Brand;
 use App\Models\Motorcycle;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,7 +20,6 @@ class MotorcycleController extends Controller
     public function index(): View
     {
         $viewData['motorcycles'] = Motorcycle::all();
-        $viewData['title'] = 'Motorcycles';
 
         return view('admin.motorcycle.index')->with('viewData', $viewData);
     }
@@ -29,20 +28,12 @@ class MotorcycleController extends Controller
     {
         $motorcycle = Motorcycle::findOrFail($id);
         $viewData['motorcycle'] = $motorcycle;
-        $viewData['title'] = $motorcycle->getName();
-        $viewData['name'] = $motorcycle->getName();
-        $viewData['description'] = $motorcycle->getDescription();
-        $viewData['id'] = $motorcycle->getId();
-        $viewData['image'] = $motorcycle->getImage();
-        $viewData['price'] = $motorcycle->getPrice();
-        $viewData['stock'] = $motorcycle->getStock();
 
         return view('admin.motorcycle.show')->with('viewData', $viewData);
     }
 
     public function create(): View
     {
-        $viewData['title'] = 'Create Motorcycle';
         $viewData['brands'] = Brand::all();
 
         return view('admin.motorcycle.create')->with('viewData', $viewData);
