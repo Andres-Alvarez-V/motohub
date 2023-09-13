@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', trans('messages.brands'))
+@section('title', '- '.trans('messages.brands'))
 @section('content')
 <div class="container">
     <h1>{{ trans('messages.brands') }}</h1>

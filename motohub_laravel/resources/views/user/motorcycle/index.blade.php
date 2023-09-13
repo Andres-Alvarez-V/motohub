@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', trans('messages.motorcycles'))
+@section('title', '- '.trans('messages.motorcycles'))
 @section('content')
 <div class="container">
     <div class="row">

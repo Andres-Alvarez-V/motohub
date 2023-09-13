@@ -37,4 +37,5 @@ return [
     'adminMotorcycles' => 'Admin motorcycles',
     'adminBrands' => 'Admin brands',
     'home' => 'Home',
+    'balance' => 'Balance',
 ];

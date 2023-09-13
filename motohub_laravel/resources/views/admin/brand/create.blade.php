@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', trans('messages.brands'))
+@section('title', '- '.trans('messages.brands'))
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

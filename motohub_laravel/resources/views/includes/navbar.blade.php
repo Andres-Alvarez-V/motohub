@@ -64,8 +64,11 @@
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
-
+                        
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li>
+                                <p class="dropdown-item"><strong>{{ trans('messages.balance').': '}}</strong>{{ '$'.Auth::user()->balance }}</p>
+                            </li>
                             <li>
                                 <form id="logout" action="{{ route('logout') }}" method="POST">
                                     <a role="button" class="dropdown-item" onclick="document.getElementById('logout').submit();">{{ trans('messages.logout') }}</a>

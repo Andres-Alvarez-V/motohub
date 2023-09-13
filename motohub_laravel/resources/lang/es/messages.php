@@ -37,4 +37,5 @@ return [
     'adminMotorcycles' => 'Administrar motos',
     'adminBrands' => 'Administrar marcas',
     'home' => 'Inicio',
+    'balance' => 'Saldo',
 ];

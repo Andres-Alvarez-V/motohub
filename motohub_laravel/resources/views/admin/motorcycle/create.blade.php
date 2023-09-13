@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', trans('messages.motorcycles'))
+@section('title', '- '.trans('messages.motorcycles'))
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -30,7 +30,7 @@
                         </select>
                         <input type="number" class="form-control mb-2" placeholder="Enter a stock" name="stock" value="{{ old('stock') }}" />
                         <input type="number" class="form-control mb-2" placeholder="Enter a price" name="price" value="{{ old('price') }}" />
-                        <input type="submit" class="btn btn-primary-app-app-app-app-app-app-app" value="{{ trans('messages.send') }}" />
+                        <input type="submit" class="btn btn-primary-app" value="{{ trans('messages.send') }}" />
                     </form>
                 </div>
             </div>

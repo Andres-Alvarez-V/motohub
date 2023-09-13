@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', '- ' . trans('messages.register'))
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -115,7 +115,7 @@
                         </div>
 
                         <div class="row mb-0 d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary-app-app-app-app-app-app col-6">
+                            <button type="submit" class="btn btn-primary-app col-6">
                                 {{ trans('messages.register') }}
                             </button>
                         </div>
