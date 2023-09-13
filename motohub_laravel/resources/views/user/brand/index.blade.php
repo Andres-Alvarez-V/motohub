@@ -15,7 +15,7 @@
                         src="{{$brand->getLogoImage()}}" class="card-img-top w-75"></div>
                 <div class="card-body item-card-inside-app">
                     <p class="card-text">{{$brand->getDescription()}}</p>
-                    <a href="{{ route('user.brand.show', ['id'=> $brand->getId()]) }}" class="btn btn-primary">{{ trans('messages.show') }}</a>
+                    <a href="{{ route('user.brand.show', ['id'=> $brand->getId()]) }}" class="btn btn-primary-app">{{ trans('messages.show') }}</a>
                 </div>
                 <div class="card-footer text-center text-muted">
                     {{$brand->getFoundationYear()}}

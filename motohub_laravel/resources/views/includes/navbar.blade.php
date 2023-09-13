@@ -51,12 +51,12 @@
 
                     <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                     <li class="nav-item">
-                        <a href="{{ route('user.motorcycle.index') }}" class="nav-link dropdown-toggle text-white">
+                        <a href="{{ route('user.motorcycle.index') }}" class="nav-link text-white">
                             {{ trans('messages.motorcycles') }}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('user.brand.index') }}" class="nav-link dropdown-toggle text-white">
+                        <a href="{{ route('user.brand.index') }}" class="nav-link text-white">
                             {{ trans('messages.brands') }}
                         </a>
                     </li>

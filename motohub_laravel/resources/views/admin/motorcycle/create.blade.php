@@ -30,7 +30,7 @@
                         </select>
                         <input type="number" class="form-control mb-2" placeholder="Enter a stock" name="stock" value="{{ old('stock') }}" />
                         <input type="number" class="form-control mb-2" placeholder="Enter a price" name="price" value="{{ old('price') }}" />
-                        <input type="submit" class="btn btn-primary" value="{{ trans('messages.send') }}" />
+                        <input type="submit" class="btn btn-primary-app-app-app-app-app-app-app" value="{{ trans('messages.send') }}" />
                     </form>
                 </div>
             </div>

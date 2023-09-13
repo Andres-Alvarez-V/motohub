@@ -14,7 +14,7 @@
         @csrf
         <input type="hidden" name="motorcycle_id" value="{{ $viewData["motorcycle"]->getId() }}">
         <input type="number" name="quantity" placeholder="0">
-        <button type="submit" class=" btn btn-primary">{{ trans('messages.addToCart') }}</button>
+        <button type="submit" class=" btn btn-primary-app">{{ trans('messages.addToCart') }}</button>
     </form>
 </div>
 @endsection

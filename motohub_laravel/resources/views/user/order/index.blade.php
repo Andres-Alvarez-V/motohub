@@ -58,7 +58,7 @@
                 @csrf
                 <button type="submit" @class([
                     'btn',
-                    'btn-primary-app',
+                    'btn-primary-app-app',
                     'w-100',
                     'disabled' => $viewData["subTotal"] == 0
                 ])>

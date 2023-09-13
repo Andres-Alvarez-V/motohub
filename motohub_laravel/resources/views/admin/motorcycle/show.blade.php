@@ -10,6 +10,6 @@
     <p class="card-text my-2">{{ $viewData["motorcycle"]->getDescription() }}</p>
     <p class="card-text my-2">Stock: {{ $viewData["motorcycle"]->getStock() }}</p>
     <p class="card-text my-2">${{ $viewData["motorcycle"]->getPrice() }}</p>
-    <a href="{{ route( 'admin.motorcycle.delete' , ['id' =>$viewData["motorcycle"]->getId()]) }}" class="btn bg-primary text-white my-2">Delete</a>
+    <a href="{{ route( 'admin.motorcycle.delete' , ['id' =>$viewData["motorcycle"]->getId()]) }}" class="btn btn-primary-app text-white my-2">Delete</a>
 </div>
 @endsection

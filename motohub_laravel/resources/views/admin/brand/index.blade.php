@@ -5,7 +5,7 @@
     <h1>{{ trans('messages.brands') }}</h1>
     <div class="row">
         <div style="margin-bottom: 20px;">
-            <a href="{{ route('admin.brand.create') }}" class="btn btn-primary">{{ trans('messages.createBrands') }}</a>
+            <a href="{{ route('admin.brand.create') }}" class="btn btn-primary-app">{{ trans('messages.createBrands') }}</a>
         </div>
         @foreach ($viewData["brands"] as $brand)
         <div class="col-md-4 col-lg-3 mb-2 d-flex align-items-stretch">
@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <p class="card-text">{{$brand->getDescription()}}</p>
                     <a href="{{ route('admin.brand.show', ['id'=> $brand->getId()]) }}"
-                        class="btn btn-primary">{{ trans('messages.show') }}</a>
+                        class="btn btn-primary-app">{{ trans('messages.show') }}</a>
                 </div>
                 <div class="card-footer text-center text-muted">
                     {{$brand->getFoundationYear()}}

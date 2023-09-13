@@ -16,7 +16,7 @@
                 <div class="card-body item-card-inside-app">
                     <p class="card-text">{{$motorcycle->getDescription()}}</p>
                     <a href="{{ route('user.motorcycle.show', ['id'=> $motorcycle->getId()]) }}"
-                        class="btn btn-primary">{{trans('messages.show')}}</a>
+                        class="btn btn-primary-app">{{trans('messages.show')}}</a>
                 </div>
                 <div class="card-footer text-center text-muted">
                     {{$motorcycle->getState()}}
