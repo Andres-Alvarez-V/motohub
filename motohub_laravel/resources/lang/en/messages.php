@@ -4,6 +4,7 @@ return [
     'register'=>'Register',
     'login'=>'Login',
     'logout' => 'Logout',
+    'send' => 'Send',
     'rememberMe' => 'Remember me',
     'admin' => 'Admin',
     'brands' => 'Brands',
@@ -31,4 +32,9 @@ return [
     'language' => 'Language',
     'show' => 'Show',
     'addToCart' => 'Add to cart',
+    'createMotorcycles' => 'Create new motorcycle',
+    'createBrands' => 'Create new brand',
+    'adminMotorcycles' => 'Admin motorcycles',
+    'adminBrands' => 'Admin brands',
+    'home' => 'Home',
 ];

@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" href="{{ route('user.index') }}">Home</a>
+                    <a class="nav-link active text-white" href="{{ route('user.index') }}">{{ trans('messages.home') }}</a>
                 </li>
 
                 @guest
@@ -42,10 +42,10 @@
                 @else
                     @if (Auth::user()->role == config('constants.ROLE_ADMIN'))
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('admin.brand.index') }}">{{ trans('messages.brands') }}</a>
+                            <a class="nav-link text-white" href="{{ route('admin.brand.index') }}">{{ trans('messages.adminBrands') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white"href="{{ route('admin.motorcycle.index') }}">{{ trans('messages.motorcycles') }}</a>
+                            <a class="nav-link text-white"href="{{ route('admin.motorcycle.index') }}">{{ trans('messages.adminMotorcycles') }}</a>
                         </li>
                     @endif
 

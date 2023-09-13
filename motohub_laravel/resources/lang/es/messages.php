@@ -4,6 +4,7 @@ return [
     'register'=>'Registrarse',
     'login'=>'Iniciar sesión',
     'logout' => 'Cerrar sesión',
+    'send' => 'Enviar',
     'rememberMe' => 'Recordarme',
     'admin' => 'Administrador',
     'brands' => 'Marcas',
@@ -31,4 +32,9 @@ return [
     'language' => 'Lenguaje',
     'show' => 'Mostrar',
     'addToCart' => 'Agregar al carrito',
+    'createMotorcycles' => 'Crear nueva moto',
+    'createBrands' => 'Crear nueva marca',
+    'adminMotorcycles' => 'Administrar motos',
+    'adminBrands' => 'Administrar marcas',
+    'home' => 'Inicio',
 ];
