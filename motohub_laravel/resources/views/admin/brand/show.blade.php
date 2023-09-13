@@ -6,7 +6,7 @@
     <h1>
         {{ $viewData["brand"]->getName() }}
     </h1>
-    <img class="my-2" style="width: 200px; height: 150px" src="{{$viewData['brand']->getLogoImage()}}" alt="logo">
+    <img class="my-2" style="width: 200px; height: 150px" src="{{ asset('images/brands/' . $viewData["brand"]->getLogoImage())}}" alt="logo">
     <p class="card-text my-2">{{ $viewData["brand"]->getDescription() }}</p>
     <a href="/admin/brands/delete/{{$viewData["brand"]->getId()}}" class="btn text-white my-2 btn-primary-app">Delete</a>
     <div class="row">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="d-flex justify-content-center"
                     style="height: 100%;width: 100%; overflow: hidden; margin: 0 auto"><img
-                        src="{{$motorcycle->getImage()}}" class="card-img-top w-75"></div>
+                        src="{{ asset('images/motorcycles/' . $motorcycle->getImage())}}" class="card-img-top w-75"></div>
                 <div class="card-body">
                     <p class="card-text">{{$motorcycle->getDescription()}}</p>
                     <a href="{{ route('admin.motorcycle.show', ['id'=> $motorcycle->getId()]) }}"

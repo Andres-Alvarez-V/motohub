@@ -6,7 +6,7 @@
     <h1>
         {{ $viewData["brand"]->getName() }}
     </h1>
-    <img class="my-2" style="width: 200px; height: 150px" src="{{$viewData["brand"]->getLogoImage()}}" alt="logo">
+    <img class="my-2" style="width: 200px; height: 150px" src="{{ asset('images/brands/' . $viewData["brand"]->getLogoImage())}}" alt="logo">
     <p class="card-text my-2">{{ $viewData["brand"]->getDescription() }}</p>
     <div class="row">
         @foreach ($viewData["brand"]->getMotorcycles() as $motorcycle)
