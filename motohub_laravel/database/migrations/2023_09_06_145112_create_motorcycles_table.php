@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('model');
             $table->string('category');
             $table->string('image');
-            $table->string('description');
-            $table->float('price');
-            $table->integer('stock');
+            $table->text('description');
+            $table->unsignedDouble('price', null, 2);
+            $table->unsignedInteger('stock');
             $table->string('state');
             $table->unsignedBigInteger('brand_id');
             $table->foreign('brand_id')->references('id')->on('brands');
