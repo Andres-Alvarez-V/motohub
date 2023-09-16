@@ -47,9 +47,18 @@ class MotorcycleController extends Controller
         return redirect()->route('admin.motorcycle.index');
     }
 
-    public function delete(string $id): RedirectResponse
+    public function disable(string $id): RedirectResponse
     {
-        Motorcycle::destroy($id);
+        $motorcycle = Motorcycle::findOrFail($id);
+        $motorcycle->update(['is_active' => false]);
+
+        return redirect()->route('admin.motorcycle.index');
+    }
+
+    public function enable(string $id): RedirectResponse
+    {
+        $motorcycle = Motorcycle::findOrFail($id);
+        $motorcycle->update(['is_active' => true]);
 
         return redirect()->route('admin.motorcycle.index');
     }

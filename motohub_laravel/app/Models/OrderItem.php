@@ -19,6 +19,8 @@ class OrderItem extends Model
      * $this->attributes['quantity'] - int - contains the order item quantity
      * $this->motorcycle - Motorcycle - contains the associated motorcycle
      * $this->order - Order - contains the associated order
+     * $this->attributes['created_at'] - string - contains the OrderItem creation date
+     * $this->attributes['updated_at'] - string - contains the OrderItem update date
      */
     protected $fillable = ['motorcycle_id', 'order_id', 'quantity'];
 
@@ -26,11 +28,6 @@ class OrderItem extends Model
     public function getId(): int
     {
         return $this->attributes['id'];
-    }
-
-    public function setId(int $id): void
-    {
-        $this->attributes['id'] = $id;
     }
 
     public function getQuantity(): int
@@ -42,6 +39,17 @@ class OrderItem extends Model
     {
         $this->attributes['quantity'] = $quantity;
     }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
+    }
+
 
     // Relationships
     public function order(): BelongsTo
@@ -57,5 +65,20 @@ class OrderItem extends Model
     public function setOrder(Collection $order): void
     {
         $this->order = $order;
+    }
+
+    public function motorcycle(): BelongsTo
+    {
+        return $this->belongsTo(Motorcycle::class);
+    }
+
+    public function getMotorcycle(): Collection
+    {
+        return $this->motorcycle;
+    }
+
+    public function setMotorcycle(Collection $motorcycle): void
+    {
+        $this->motorcycle = $motorcycle;
     }
 }

@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Http\Client\Request;
 
 class User extends Authenticatable
 {
@@ -124,4 +125,31 @@ class User extends Authenticatable
     {
         return $this->attributes['role'];
     }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    // Relationships
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function getOrder(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function setOrder(Collection $orders): void
+    {
+        $this->orders = $orders;
+    }
+
 }
