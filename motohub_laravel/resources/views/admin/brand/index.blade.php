@@ -15,7 +15,7 @@
                 </div>
                 <div class="d-flex justify-content-center"
                     style="height: 100%;width: 100%; overflow: hidden; margin: 0 auto"><img
-                        src="{{ asset('images/brands/' . $brand->getLogoImage())}}" class="card-img-top w-75"></div>
+                        src="{{ asset('storage/' . $brand->getLogoImage())}}" class="card-img-top w-75"></div>
                 <div class="card-body">
                     <p class="card-text">{{$brand->getDescription()}}</p>
                     <a href="{{ route('admin.brand.show', ['id'=> $brand->getId()]) }}"

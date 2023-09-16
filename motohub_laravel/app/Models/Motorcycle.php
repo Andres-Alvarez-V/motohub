@@ -41,7 +41,7 @@ class Motorcycle extends Model
             'name' => 'required',
             'model' => 'required',
             'category' => 'required',
-            'image' => 'required',
+            'image' => 'required | image | mimes:jpeg,png,jpg,gif,svg',
             'description' => 'required',
             'price' => 'required',
             'stock' => 'required',

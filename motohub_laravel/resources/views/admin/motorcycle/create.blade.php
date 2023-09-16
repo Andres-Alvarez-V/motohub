@@ -14,12 +14,12 @@
                         @endforeach
                     </ul>
                     @endif
-                    <form method="POST" action="{{ route('admin.motorcycle.save') }}">
+                    <form method="POST" action="{{ route('admin.motorcycle.save') }}" enctype="multipart/form-data">
                         @csrf
                         <input type="text" class="form-control mb-2" placeholder="Enter name" name="name" value="{{ old('name') }}" />
                         <input type="text" class="form-control mb-2" placeholder="Enter model" name="model" value="{{ old('model') }}" />
                         <input type="text" class="form-control mb-2" placeholder="Enter category" name="category" value="{{ old('category') }}" />
-                        <input type="text" class="form-control mb-2" placeholder="Enter image url" name="image" value="{{ old('image') }}" />
+                        <input type="file" class="form-control mb-2" name="image" />
                         <input type="text" class="form-control mb-2" placeholder="Enter a description" name="description" value="{{ old('description') }}" />
                         <input type="text" class="form-control mb-2" placeholder="Enter a state" name="state" value="{{ old('state') }}" />
                         <label for="brand_id">Brand</label>
