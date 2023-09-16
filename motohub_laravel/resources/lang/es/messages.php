@@ -38,6 +38,6 @@ return [
     'adminBrands' => 'Administrar marcas',
     'home' => 'Inicio',
     'balance' => 'Saldo',
-    'dissableForSale' => 'Deshabilitar para la venta',
+    'disableForSale' => 'Deshabilitar para la venta',
     'enableForSale' => 'Habilitar para la venta',
 ];

@@ -38,6 +38,6 @@ return [
     'adminBrands' => 'Admin brands',
     'home' => 'Home',
     'balance' => 'Balance',
-    'dissableForSale' => 'Dissable for sale',
+    'disableForSale' => 'disable for sale',
     'enableForSale' => 'Enable for sale',
 ];

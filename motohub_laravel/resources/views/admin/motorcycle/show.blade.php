@@ -11,7 +11,7 @@
     <p class="card-text my-2">Stock: {{ $viewData["motorcycle"]->getStock() }}</p>
     <p class="card-text my-2">${{ $viewData["motorcycle"]->getPrice() }}</p>
     @if($viewData["motorcycle"]->getIsActive())
-        <a href="{{ route( 'admin.motorcycle.dissable' , ['id' =>$viewData["motorcycle"]->getId()]) }}" class="btn btn-primary-app text-white my-2">{{trans('messages.dissableForSale')}}</a>
+        <a href="{{ route( 'admin.motorcycle.disable' , ['id' =>$viewData["motorcycle"]->getId()]) }}" class="btn btn-primary-app text-white my-2">{{trans('messages.disableForSale')}}</a>
     @else
         <a href="{{ route( 'admin.motorcycle.enable' , ['id' =>$viewData["motorcycle"]->getId()]) }}" class="btn btn-primary-app text-white my-2">{{trans('messages.enableForSale')}}</a>
     @endif

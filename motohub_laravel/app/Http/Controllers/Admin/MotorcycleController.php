@@ -47,11 +47,10 @@ class MotorcycleController extends Controller
         return redirect()->route('admin.motorcycle.index');
     }
 
-    public function dissable(string $id): RedirectResponse
+    public function disable(string $id): RedirectResponse
     {
         $motorcycle = Motorcycle::findOrFail($id);
-        $motorcycle->is_active = false;
-        $motorcycle->save();
+        $motorcycle->update(['is_active' => false]);
 
         return redirect()->route('admin.motorcycle.index');
     }
@@ -59,8 +58,7 @@ class MotorcycleController extends Controller
     public function enable(string $id): RedirectResponse
     {
         $motorcycle = Motorcycle::findOrFail($id);
-        $motorcycle->is_active = true;
-        $motorcycle->save();
+        $motorcycle->update(['is_active' => true]);
 
         return redirect()->route('admin.motorcycle.index');
     }
