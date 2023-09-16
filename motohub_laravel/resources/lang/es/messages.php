@@ -31,6 +31,8 @@ return [
     'buy' => 'Comprar',
     'language' => 'Lenguaje',
     'show' => 'Mostrar',
+    'edit' => 'Editar',
+    'update' => 'Actualizar',
     'addToCart' => 'Agregar al carrito',
     'createMotorcycles' => 'Crear nueva moto',
     'createBrands' => 'Crear nueva marca',

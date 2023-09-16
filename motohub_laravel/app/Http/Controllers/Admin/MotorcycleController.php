@@ -47,6 +47,22 @@ class MotorcycleController extends Controller
         return redirect()->route('admin.motorcycle.index');
     }
 
+    public function edit(): View
+    {
+        $viewData['brands'] = Brand::all();
+
+        return view('admin.motorcycle.edit')->with('viewData', $viewData);
+    }
+
+    public function update(Request $request): RedirectResponse
+    {
+        Motorcycle::validateMotorcycleRequest($request);
+        $motorcycle = Motorcycle::findOrFail($request->id);
+        $motorcycle->update($request->only(['name', 'model', 'brand_id', 'category', 'image', 'description', 'price', 'stock', 'state']));
+
+        return redirect()->route('admin.motorcycle.index');
+    }
+
     public function disable(string $id): RedirectResponse
     {
         $motorcycle = Motorcycle::findOrFail($id);

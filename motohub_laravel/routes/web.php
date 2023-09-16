@@ -29,6 +29,7 @@ Route::prefix('/admin')->group(function(){
         Route::get('/', 'App\Http\Controllers\Admin\MotorcycleController@index')->name('admin.motorcycle.index');
         Route::get('/create', 'App\Http\Controllers\Admin\MotorcycleController@create')->name('admin.motorcycle.create');
         Route::post('/save', 'App\Http\Controllers\Admin\MotorcycleController@save')->name('admin.motorcycle.save');
+        Route::get('/edit', 'App\Http\Controllers\Admin\MotorcycleController@edit')->name('admin.motorcycle.edit');
         Route::get('/{id}', 'App\Http\Controllers\Admin\MotorcycleController@show')->name('admin.motorcycle.show');
         Route::get('/disable/{id}', 'App\Http\Controllers\Admin\MotorcycleController@disable')->name('admin.motorcycle.disable');
         Route::get('/enable/{id}', 'App\Http\Controllers\Admin\MotorcycleController@enable')->name('admin.motorcycle.enable');

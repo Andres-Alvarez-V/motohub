@@ -35,18 +35,33 @@ class Motorcycle extends Model
     protected $fillable = ['name', 'model', 'category', 'image', 'description', 'price', 'stock', 'state', 'brand_id'];
 
 
-    public static function validateMotorcycleRequest(Request $request)
+    public static function validateMotorcycleRequest(Request $request): void
     {
         $request->validate([
-            'name' => 'required',
-            'model' => 'required',
-            'category' => 'required',
+            'name' => 'required | min:3 | max:255',
+            'model' => 'required | min:4 | max:4',
+            'category' => 'required | min:3 | max:255',
             'image' => 'required',
-            'description' => 'required',
-            'price' => 'required',
-            'stock' => 'required',
-            'state' => 'required',
-            'brand_id' => 'required'
+            'description' => 'required | min:3 | max:255',
+            'price' => 'required | numeric | min:0',
+            'stock' => 'required | numeric | min:0',
+            'state' => 'required | min:3 | max:255',
+            'brand_id' => 'required | numeric'
+        ]);
+    }
+
+    public static function validateMotorcycleEdit(Request $request): void
+    {
+        $request->validate([
+            'name' => 'min:3 | max:255',
+            'model' => 'min:4 | max:4',
+            'category' => 'min:3 | max:255',
+            'image' => 'no required',
+            'description' => 'min:3 | max:255',
+            'price' => 'numeric | min:0',
+            'stock' => 'numeric | min:0',
+            'state' => 'min:3 | max:255',
+            'brand_id' => 'numeric'
         ]);
     }
 

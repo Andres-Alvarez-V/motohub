@@ -31,6 +31,8 @@ return [
     'buy' => 'Buy',
     'language' => 'Language',
     'show' => 'Show',
+    'edit' => 'Edit',
+    'update' => 'Update',
     'addToCart' => 'Add to cart',
     'createMotorcycles' => 'Create new motorcycle',
     'createBrands' => 'Create new brand',
