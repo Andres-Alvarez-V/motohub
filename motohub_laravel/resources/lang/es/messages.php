@@ -43,4 +43,5 @@ return [
     'disableForSale' => 'Deshabilitar para la venta',
     'enableForSale' => 'Habilitar para la venta',
     'uploadImageError' => 'Error al subir la imagen',
+    'map' => 'Mapa',
 ];

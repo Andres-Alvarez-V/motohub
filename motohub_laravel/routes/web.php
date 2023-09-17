@@ -64,3 +64,5 @@ Route::prefix('/motorcycles')->group(function(){
     Route::get('/', 'App\Http\Controllers\User\MotorcycleController@index')->name('user.motorcycle.index');
     Route::get('/{id}', 'App\Http\Controllers\User\MotorcycleController@show')->name('user.motorcycle.show');
 });
+
+Route::get('/map', 'App\Http\Controllers\LeafletMapController@index')->name('map.index');

@@ -33,6 +33,9 @@
                 <li class="nav-item">
                     <a class="nav-link active text-white" href="{{ route('user.index') }}">{{ trans('messages.home') }}</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{{ route('map.index') }}">{{ trans('messages.map') }}</a>
+                </li>
 
                 @guest
                     <div class="vr bg-white mx-2 d-none d-lg-block"></div>

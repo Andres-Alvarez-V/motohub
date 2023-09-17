@@ -43,4 +43,5 @@ return [
     'disableForSale' => 'disable for sale',
     'enableForSale' => 'Enable for sale',
     'uploadImageError' => 'Error uploading image',
+    'map' => 'Map',
 ];
