@@ -48,19 +48,26 @@ let map, markers = [];
     function initMap() {
         map = L.map('map', {
             center: {
-                lat: 6.226319,
-                lng: -75.592980,
+                lat: 4.39203657723484,
+                lng: -73.0688651699247,
             },
-            zoom: 15
+            zoom: 6
         });
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
 
-        L.geoJson(statesData).addTo(map);
+        L.geoJson(statesData, {style: {
+            fillColor: '#FFEDA0',
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7
+        }}).addTo(map);
 
-        // map.on('click', mapClicked);
+        map.on('click', mapClicked);
     }
     initMap();
 
@@ -95,10 +102,4 @@ let map, markers = [];
     function markerClicked($event, index) {
         console.log(map);
         console.log($event.latlng.lat, $event.latlng.lng);
-    }
-
-    /* ----------------------- Handle Marker DragEnd Event ---------------------- */
-    function markerDragEnd($event, index) {
-        console.log(map);
-        console.log($event.target.getLatLng());
     }

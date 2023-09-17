@@ -44,4 +44,5 @@ return [
     'enableForSale' => 'Habilitar para la venta',
     'uploadImageError' => 'Error al subir la imagen',
     'map' => 'Mapa',
+    'motohubMap' => 'Mapa de Motohub',
 ];

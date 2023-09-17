@@ -3,13 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+use App\Models\Order;
 
 class LeafletMapController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['auth', 'lang']);
+    }
+
     public function index(): View
     {
+
+        
+
         $initialMarkers = [
             [
                 'position' => [

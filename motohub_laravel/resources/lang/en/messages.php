@@ -44,4 +44,5 @@ return [
     'enableForSale' => 'Enable for sale',
     'uploadImageError' => 'Error uploading image',
     'map' => 'Map',
+    'motohubMap' => 'Motohub Map',
 ];
