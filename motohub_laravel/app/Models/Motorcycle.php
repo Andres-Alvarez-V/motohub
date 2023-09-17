@@ -53,10 +53,10 @@ class Motorcycle extends Model
     public static function validateMotorcycleEdit(Request $request): void
     {
         $request->validate([
-            'name' => 'min:3 | max:255',
+            'id' => 'required | numeric',
+            'name' => 'min:1 | max:50',
             'model' => 'min:4 | max:4',
             'category' => 'min:3 | max:255',
-            'image' => 'no required',
             'description' => 'min:3 | max:255',
             'price' => 'numeric | min:0',
             'stock' => 'numeric | min:0',

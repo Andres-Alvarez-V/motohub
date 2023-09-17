@@ -48,6 +48,22 @@ class BrandController extends Controller
         return redirect()->route('admin.brand.index');
     }
 
+    public function edit(int $id): View
+    {
+        $viewData['brand'] = Brand::findOrFail($id);
+
+        return view('admin.brand.edit')->with('viewData', $viewData);
+    }
+
+    public function update(Request $request): RedirectResponse
+    {
+        Brand::validateBrandEdit($request);
+        $brand = Brand::findOrFail($request->id);
+        $brand->update($request->only(['name', 'country_origin', 'foundation_year', 'logo_image', 'description']));
+
+        return redirect()->route('admin.brand.index');
+    }
+
     public function delete(string $id): RedirectResponse
     {
         Motorcycle::where('brand_id', $id)->delete();

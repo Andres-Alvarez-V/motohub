@@ -14,22 +14,27 @@
                         @endforeach
                     </ul>
                     @endif
-                    <form method="PUT" action="{{ route('admin.motorcycle.save') }}">
+                    <form method="POST" action="{{ route('admin.motorcycle.update') }}">
                         @csrf
-                        <input type="text" class="form-control mb-2" placeholder="Enter name" name="name" value="{{ old('name') }}" />
-                        <input type="text" class="form-control mb-2" placeholder="Enter model" name="model" value="{{ old('model') }}" />
-                        <input type="text" class="form-control mb-2" placeholder="Enter category" name="category" value="{{ old('category') }}" />
-                        <input type="text" class="form-control mb-2" placeholder="Enter image url" name="image" value="{{ old('image') }}" />
-                        <input type="text" class="form-control mb-2" placeholder="Enter a description" name="description" value="{{ old('description') }}" />
-                        <input type="text" class="form-control mb-2" placeholder="Enter a state" name="state" value="{{ old('state') }}" />
+                        <input type="hidden" name="id" value="{{ $viewData['motorcycle']->getId() }}" />
+                        <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getName() }}" placeholder="Enter name" name="name"/>
+                        <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getModel() }}" placeholder="Enter model" name="model"/>
+                        <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getCategory() }}" placeholder="Enter category" name="category"/>
+                        <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getImage() }}" placeholder="Enter image url" name="image"/>
+                        <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getDescription() }}" placeholder="Enter a description" name="description"/>
+                        <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getState() }}" placeholder="Enter a state" name="state"/>
                         <label for="brand_id">Brand</label>
                         <select name="brand_id">
                             @foreach ($viewData["brands"] as $brand)
-                                <option value="{{$brand->getId()}}">{{$brand->getName()}}</option>
+                                @if ($brand->getId() == $viewData['motorcycle']->getBrandId())
+                                    <option selected value="{{$brand->getId()}}">{{$brand->getName()}}</option>
+                                @else
+                                    <option value="{{$brand->getId()}}">{{$brand->getName()}}</option>
+                                @endif
                             @endforeach
                         </select>
-                        <input type="number" class="form-control mb-2" placeholder="Enter a stock" name="stock" value="{{ old('stock') }}" />
-                        <input type="number" class="form-control mb-2" placeholder="Enter a price" name="price" value="{{ old('price') }}" />
+                        <input type="number" class="form-control mb-2" value="{{ $viewData['motorcycle']->getStock() }}" placeholder="Enter a stock" name="stock"/>
+                        <input type="number" class="form-control mb-2" value="{{ $viewData['motorcycle']->getPrice() }}" placeholder="Enter a price" name="price"/>
                         <input type="submit" class="btn btn-primary-app" value="{{ trans('messages.update') }}" />
                     </form>
                 </div>

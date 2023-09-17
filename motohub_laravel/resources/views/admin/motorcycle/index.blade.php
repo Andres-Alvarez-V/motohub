@@ -23,7 +23,7 @@
                     <div class="card-buttons">
                         <a href="{{ route('admin.motorcycle.show', ['id'=> $motorcycle->getId()]) }}"
                             class="btn btn-primary-app">{{ trans('messages.show') }}</a>
-                        <a href="{{ route('admin.motorcycle.edit') }}"
+                        <a href="{{ route('admin.motorcycle.edit', ['id'=> $motorcycle->getId()]) }}"
                             class="btn btn-primary-app">{{ trans('messages.edit') }}</a>
                     </div>
                 </div>

@@ -28,16 +28,19 @@ Route::prefix('/admin')->group(function(){
     Route::prefix('/motorcycles')->group(function(){
         Route::get('/', 'App\Http\Controllers\Admin\MotorcycleController@index')->name('admin.motorcycle.index');
         Route::get('/create', 'App\Http\Controllers\Admin\MotorcycleController@create')->name('admin.motorcycle.create');
+        Route::get('/edit/{id}', 'App\Http\Controllers\Admin\MotorcycleController@edit')->name('admin.motorcycle.edit');
+        Route::post('/update', 'App\Http\Controllers\Admin\MotorcycleController@update')->name('admin.motorcycle.update');
         Route::post('/save', 'App\Http\Controllers\Admin\MotorcycleController@save')->name('admin.motorcycle.save');
-        Route::get('/edit', 'App\Http\Controllers\Admin\MotorcycleController@edit')->name('admin.motorcycle.edit');
-        Route::get('/{id}', 'App\Http\Controllers\Admin\MotorcycleController@show')->name('admin.motorcycle.show');
         Route::get('/disable/{id}', 'App\Http\Controllers\Admin\MotorcycleController@disable')->name('admin.motorcycle.disable');
         Route::get('/enable/{id}', 'App\Http\Controllers\Admin\MotorcycleController@enable')->name('admin.motorcycle.enable');
+        Route::get('/{id}', 'App\Http\Controllers\Admin\MotorcycleController@show')->name('admin.motorcycle.show');
     });
 
     Route::prefix('/brands')->group(function(){
         Route::get('/', 'App\Http\Controllers\Admin\BrandController@index')->name('admin.brand.index');
         Route::get('/create', 'App\Http\Controllers\Admin\BrandController@create')->name('admin.brand.create');
+        Route::get('/edit/{id}', 'App\Http\Controllers\Admin\BrandController@edit')->name('admin.brand.edit');
+        Route::post('/update', 'App\Http\Controllers\Admin\BrandController@update')->name('admin.brand.update');
         Route::post('/save', 'App\Http\Controllers\Admin\BrandController@save')->name('admin.brand.save');
         Route::get('/{id}', 'App\Http\Controllers\Admin\BrandController@show')->name('admin.brand.show');
         Route::get('/delete/{id}', 'App\Http\Controllers\Admin\BrandController@delete')->name('admin.brand.delete');

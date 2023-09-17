@@ -38,6 +38,17 @@ class Brand extends Model
         ]);
     }
 
+    public static function validateBrandEdit(Request $request): void
+    {
+        $request->validate([
+            'id' => 'required | numeric',
+            'name' => 'min:1 | max:50',
+            'country_origin' => 'min:1 | max:50',
+            'foundation_year' => 'numeric | min:1 | max:50',
+            'description' => 'min:1 | max:255',
+        ]);
+    }
+
     public function getId(): int
     {
         return $this->id;
