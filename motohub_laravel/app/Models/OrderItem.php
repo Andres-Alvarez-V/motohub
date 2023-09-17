@@ -72,7 +72,7 @@ class OrderItem extends Model
         return $this->belongsTo(Motorcycle::class);
     }
 
-    public function getMotorcycle(): Collection
+    public function getMotorcycle(): Motorcycle
     {
         return $this->motorcycle;
     }

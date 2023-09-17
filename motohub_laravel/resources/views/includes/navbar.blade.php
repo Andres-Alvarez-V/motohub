@@ -45,6 +45,9 @@
                             <a class="nav-link text-white" href="{{ route('admin.brand.index') }}">{{ trans('messages.adminBrands') }}</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('admin.analytics.index') }}">{{ trans('messages.analyticsTitle') }}</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-white"href="{{ route('admin.motorcycle.index') }}">{{ trans('messages.adminMotorcycles') }}</a>
                         </li>
                     @endif
@@ -64,7 +67,7 @@
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
-                        
+
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li>
                                 <p class="dropdown-item"><strong>{{ trans('messages.balance').': '}}</strong>{{ '$'.Auth::user()->balance }}</p>
