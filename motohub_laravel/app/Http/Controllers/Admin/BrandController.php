@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Interfaces\ImageStorage;
 use App\Models\Brand;
 use App\Models\Motorcycle;
 use Illuminate\View\View;
@@ -42,10 +43,19 @@ class BrandController extends Controller
 
     public function save(Request $request): RedirectResponse
     {
-        Brand::validateBrandRequest($request);
-        Brand::create($request->only(['name', 'country_origin', 'foundation_year', 'logo_image', 'description']));
+        try {
+            Brand::validateBrandRequest($request);
+            $storeInterface = app(ImageStorage::class);
+            $fileName = $storeInterface->store($request);
+            $dataToStore = $request->only(['name', 'country_origin', 'foundation_year', 'description']);
+            $dataToStore['logo_image'] = $fileName;
+            Brand::create($dataToStore);
 
-        return redirect()->route('admin.brand.index');
+            return redirect()->route('admin.brand.index');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => trans('messages.uploadImageError')]);
+        }
+
     }
 
     public function edit(int $id): View
