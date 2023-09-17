@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
-use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\Motorcycle;
 
 class LeafletMapController extends Controller
 {
@@ -17,32 +18,19 @@ class LeafletMapController extends Controller
     public function index(): View
     {
 
-        
+        $data = Motorcycle::with('orderItems')->get()->toArray();
 
-        $initialMarkers = [
-            [
-                'position' => [
-                    'lat' => 28.625485,
-                    'lng' => 79.821091
-                ],
-                'draggable' => true
-            ],
-            [
-                'position' => [
-                    'lat' => 28.625293,
-                    'lng' => 79.817926
-                ],
-                'draggable' => false
-            ],
-            [
-                'position' => [
-                    'lat' => 28.625182,
-                    'lng' => 79.81464
-                ],
-                'draggable' => true
-            ]
-        ];
+        $initialMarkers = config('constants.DEPARTMENTS_GEODATA');
+        $markersWithData = [];
+        foreach($initialMarkers as $item){
+            array_push($markersWithData, [
+                'name' => $item['name'],
+                'position' => $item['position'],
+                'model' => 'R6',
+                'brand' => 'Yamaha',
+            ]);
+        }
 
-        return view('map.index', ['markers' => json_encode($initialMarkers)]);
+        return view('map.index', ['markers' => json_encode($markersWithData)]);
     }
 }
