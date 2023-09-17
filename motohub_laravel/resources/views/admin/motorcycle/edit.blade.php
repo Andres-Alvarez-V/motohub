@@ -14,13 +14,13 @@
                         @endforeach
                     </ul>
                     @endif
-                    <form method="POST" action="{{ route('admin.motorcycle.update') }}">
+                    <form method="POST" action="{{ route('admin.motorcycle.update') }}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id" value="{{ $viewData['motorcycle']->getId() }}" />
                         <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getName() }}" placeholder="Enter name" name="name"/>
                         <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getModel() }}" placeholder="Enter model" name="model"/>
                         <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getCategory() }}" placeholder="Enter category" name="category"/>
-                        <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getImage() }}" placeholder="Enter image url" name="image"/>
+                        <input type="file" class="form-control mb-2" name="image" />
                         <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getDescription() }}" placeholder="Enter a description" name="description"/>
                         <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getState() }}" placeholder="Enter a state" name="state"/>
                         <label for="brand_id">Brand</label>

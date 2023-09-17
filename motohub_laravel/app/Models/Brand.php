@@ -45,6 +45,7 @@ class Brand extends Model
             'name' => 'min:1 | max:50',
             'country_origin' => 'min:1 | max:50',
             'foundation_year' => 'numeric | min:1 | max:50',
+            'image' => 'required | image | mimes:jpeg,png,jpg,gif,svg',
             'description' => 'min:1 | max:255',
         ]);
     }

@@ -50,6 +50,22 @@ class Motorcycle extends Model
         ]);
     }
 
+    public static function validateMotorcycleEdit(Request $request): void
+    {
+        $request->validate([
+            'id' => 'required',
+            'name' => 'min:1 | max:50',
+            'model' => 'min:1 | max:50',
+            'image' => 'required | image | mimes:jpeg,png,jpg,gif,svg',
+            'category' => 'min:1 | max:255',
+            'description' => 'min:1 | max:255',
+            'price' => 'numeric | min:1',
+            'stock' => 'numeric | min:1',
+            'state' => 'min:1 | max:255',
+            'brand_id' => 'required'
+        ]);
+    }
+
     public function getId(): int
     {
         return $this->id;
