@@ -18,8 +18,12 @@
                         src="{{ asset('storage/' . $brand->getLogoImage())}}" class="card-img-top w-75"></div>
                 <div class="card-body">
                     <p class="card-text">{{$brand->getDescription()}}</p>
-                    <a href="{{ route('admin.brand.show', ['id'=> $brand->getId()]) }}"
-                        class="btn btn-primary-app">{{ trans('messages.show') }}</a>
+                    <div class="card-buttons">
+                        <a href="{{ route('admin.brand.show', ['id'=> $brand->getId()]) }}"
+                            class="btn btn-primary-app">{{ trans('messages.show') }}</a>
+                        <a href="{{ route('admin.brand.edit', ['id'=> $brand->getId()]) }}"
+                            class="btn btn-primary-app">{{ trans('messages.edit') }}</a>
+                    </div>
                 </div>
                 <div class="card-footer text-center text-muted">
                     {{$brand->getFoundationYear()}}
