@@ -41,4 +41,9 @@ return [
     'disableForSale' => 'disable for sale',
     'enableForSale' => 'Enable for sale',
     'uploadImageError' => 'Error uploading image',
+    'aboutBike' => 'About the bike',
+    'aboutBrand' => 'About the brand',
+    'originCountry' => 'Origin country',
+    'japan' => 'Japan',
+    'italy' => 'Italy',
 ];

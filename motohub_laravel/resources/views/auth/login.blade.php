@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-6">
-            <div class="card bg-color-secondary-app mt-5">
-                <div class="card-header-app white-text-app">{{ trans('messages.login') }}</div>
+            <div class="card bg-secondary-color-app mt-5">
+                <div class="card-header-app text-white">{{ trans('messages.login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

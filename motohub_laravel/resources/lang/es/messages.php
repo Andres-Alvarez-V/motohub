@@ -41,4 +41,9 @@ return [
     'disableForSale' => 'Deshabilitar para la venta',
     'enableForSale' => 'Habilitar para la venta',
     'uploadImageError' => 'Error al subir la imagen',
+    'aboutBike' => 'Acerca de la moto',
+    'aboutBrand' => 'Acerca de la marca',
+    'originCountry' => 'País de origen',
+    'japan' => 'Japón',
+    'italy' => 'Italia',
 ];

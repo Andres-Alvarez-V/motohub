@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md shadow-sm bg-color-secondary-app">
+<nav class="navbar navbar-expand-md shadow-sm bg-secondary-color-app">
     <div class="container-fluid">
 
         <a class="navbar-brand ms-2" href="{{ route('user.index') }}">
@@ -17,6 +17,8 @@
                     <a class="dropdown-item" href="{{ route('lang.change', ['locale' => 'es']) }}">
                         ES
                     </a>
+                </li>
+                <li>
                     <a class="dropdown-item" href="{{ route('lang.change', ['locale' => 'en']) }}">
                         EN
                     </a>
@@ -35,21 +37,11 @@
                 </li>
 
                 @guest
-                    <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+                    <div class="vr bg-white mx-2 d-none d-md-block"></div>
 
                     <a class="nav-link active text-white" href="{{ route('login') }}">{{ trans('messages.login') }}</a>
                     <a class="nav-link active text-white" href="{{ route('register') }}">{{ trans('messages.register') }}</a>
                 @else
-                    @if (Auth::user()->role == config('constants.ROLE_ADMIN'))
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('admin.brand.index') }}">{{ trans('messages.adminBrands') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white"href="{{ route('admin.motorcycle.index') }}">{{ trans('messages.adminMotorcycles') }}</a>
-                        </li>
-                    @endif
-
-                    <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                     <li class="nav-item">
                         <a href="{{ route('user.motorcycle.index') }}" class="nav-link text-white">
                             {{ trans('messages.motorcycles') }}
@@ -60,14 +52,25 @@
                             {{ trans('messages.brands') }}
                         </a>
                     </li>
+
+                    <div class="vr bg-white mx-2 d-none d-md-block"></div>
+                    @if (Auth::user()->role == config('constants.ROLE_ADMIN'))
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('admin.brand.index') }}">{{ trans('messages.adminBrands') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white"href="{{ route('admin.motorcycle.index') }}">{{ trans('messages.adminMotorcycles') }}</a>
+                        </li>
+                    @endif
+
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
-                        
+
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li>
-                                <p class="dropdown-item"><strong>{{ trans('messages.balance').': '}}</strong>{{ '$'.Auth::user()->balance }}</p>
+                                <p class="dropdown-item"><span class="fw-bold">{{ trans('messages.balance')}}:</span> $ {{ number_format(Auth::user()->balance)}}</p>
                             </li>
                             <li>
                                 <form id="logout" action="{{ route('logout') }}" method="POST">
