@@ -19,11 +19,15 @@
                         src="{{ URL::asset('storage/' . $motorcycle->getImage())}}" class="card-img-top w-75"></div>
                 <div class="card-body">
                     <p class="card-text">{{$motorcycle->getDescription()}}</p>
-                    <a href="{{ route('admin.motorcycle.show', ['id'=> $motorcycle->getId()]) }}"
-                        class="btn btn-primary-app">{{ trans('messages.show') }}</a>
+                    <div class="card-buttons">
+                        <a href="{{ route('admin.motorcycle.show', ['id'=> $motorcycle->getId()]) }}"
+                            class="btn btn-primary-app">{{ trans('messages.show') }}</a>
+                        <a href="{{ route('admin.motorcycle.edit', ['id'=> $motorcycle->getId()]) }}"
+                            class="btn btn-primary-app">{{ trans('messages.edit') }}</a>
+                    </div>
                 </div>
                 <div class="card-footer text-center text-muted">
-                    {{$motorcycle->getState()}}
+                    {{$motorcycle->getState()->getName()}}
                 </div>
             </div>
         </div>
