@@ -18,7 +18,8 @@ class LeafletMapController extends Controller
     public function index(): View
     {
 
-        $data = Motorcycle::with('orderItems')->get()->toArray();
+        // $motorcyclesWithOrderItems = Motorcycle::with('orderItems')->get();
+        // dd($motorcyclesWithOrderItems[0]->getOrderItems()->toArray());
 
         $initialMarkers = config('constants.DEPARTMENTS_GEODATA');
         $markersWithData = [];

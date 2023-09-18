@@ -68,7 +68,11 @@ class MotorcycleController extends Controller
     {
         Motorcycle::validateMotorcycleEdit($request);
         $motorcycle = Motorcycle::findOrFail($request->id);
-        $motorcycle->update($request->only(['name', 'model', 'brand_id', 'category', 'image', 'description', 'price', 'stock', 'state']));
+        $storeInterface = app(ImageStorage::class);
+        $fileName = $storeInterface->store($request);
+        $dataToStore = $request->only(['name', 'model', 'brand_id', 'category', 'description', 'price', 'stock', 'state']);
+        $dataToStore['image'] = $fileName;
+        $motorcycle->update($dataToStore);
 
         return redirect()->route('admin.motorcycle.index');
     }
