@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Interfaces\ImageStorage;
 use App\Models\Brand;
 use App\Models\Motorcycle;
 use Illuminate\View\View;
@@ -41,15 +42,32 @@ class MotorcycleController extends Controller
 
     public function save(Request $request): RedirectResponse
     {
-        Motorcycle::validateMotorcycleRequest($request);
-        Motorcycle::create($request->only(['name', 'model', 'brand_id', 'category', 'image', 'description', 'price', 'stock', 'state']));
+        try {
+            Motorcycle::validateMotorcycleRequest($request);
+            $storeInterface = app(ImageStorage::class);
+            $fileName = $storeInterface->store($request);
+            $dataToStore = $request->only(['name', 'model', 'brand_id', 'category', 'description', 'price', 'stock', 'state']);
+            $dataToStore['image'] = $fileName;
+            Motorcycle::create($dataToStore);
+
+            return redirect()->route('admin.motorcycle.index');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => trans('messages.uploadImageError')]);
+        }
+    }
+
+    public function disable(string $id): RedirectResponse
+    {
+        $motorcycle = Motorcycle::findOrFail($id);
+        $motorcycle->update(['is_active' => false]);
 
         return redirect()->route('admin.motorcycle.index');
     }
 
-    public function delete(string $id): RedirectResponse
+    public function enable(string $id): RedirectResponse
     {
-        Motorcycle::destroy($id);
+        $motorcycle = Motorcycle::findOrFail($id);
+        $motorcycle->update(['is_active' => true]);
 
         return redirect()->route('admin.motorcycle.index');
     }

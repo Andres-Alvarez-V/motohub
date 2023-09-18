@@ -12,6 +12,19 @@ class Brand extends Model
 {
     use HasFactory;
 
+    /**
+     * Brand ITEM ATTRIBUTES
+     * $this->attributes['id'] - int - contains the Brand item primary key (id)
+     * $this->attributes['name'] - string - contains the Brand item name
+     * $this->attributes['country_origin'] - string - contains the Brand item country origin
+     * $this->attributes['foundation_year'] - int - contains the Brand item foundation year
+     * $this->attributes['logo_image'] - string - contains the Brand item logo image
+     * $this->attributes['description'] - string - contains the Brand item description
+     * $this->attributes['created_at'] - string - contains the Brand creation date
+     * $this->attributes['updated_at'] - string - contains the Brand update date
+     * $this->motorcycles - Motorcycle[] - contains the associated motorcycles
+     */
+
     protected $fillable = ['name', 'country_origin', 'foundation_year', 'logo_image', 'description'];
 
     public static function validateBrandRequest(Request $request): void
@@ -20,7 +33,7 @@ class Brand extends Model
             'name' => 'required',
             'country_origin' => 'required',
             'foundation_year' => 'required',
-            'logo_image' => 'required',
+            'image' => 'required | image | mimes:jpeg,png,jpg,gif,svg',
             'description' => 'required',
         ]);
     }
@@ -80,6 +93,18 @@ class Brand extends Model
         $this->description = $description;
     }
 
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    // Relationships
     public function motorcycles(): HasMany
     {
         return $this->hasMany(Motorcycle::class);

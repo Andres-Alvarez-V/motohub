@@ -38,4 +38,7 @@ return [
     'adminBrands' => 'Administrar marcas',
     'home' => 'Inicio',
     'balance' => 'Saldo',
+    'disableForSale' => 'Deshabilitar para la venta',
+    'enableForSale' => 'Habilitar para la venta',
+    'uploadImageError' => 'Error al subir la imagen',
 ];
