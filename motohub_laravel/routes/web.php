@@ -45,6 +45,10 @@ Route::prefix('/admin')->group(function(){
         Route::get('/{id}', 'App\Http\Controllers\Admin\BrandController@show')->name('admin.brand.show');
         Route::get('/delete/{id}', 'App\Http\Controllers\Admin\BrandController@delete')->name('admin.brand.delete');
     });
+
+    Route::prefix('/analytics')->group(function(){
+        Route::get('/', 'App\Http\Controllers\Admin\AnalyticsController@index')->name('admin.analytics.index');
+    });
 });
 
 Route::prefix('/orders')->group(function () {
