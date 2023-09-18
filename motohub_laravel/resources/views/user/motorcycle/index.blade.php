@@ -19,7 +19,7 @@
                         class="btn btn-primary-app">{{trans('messages.show')}}</a>
                 </div>
                 <div class="card-footer text-center text-muted">
-                    {{$motorcycle->getState()}}
+                    {{$motorcycle->getState()->getName()}}
                 </div>
             </div>
         </div>

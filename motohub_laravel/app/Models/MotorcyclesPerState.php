@@ -31,6 +31,26 @@ class MotorcyclesPerState extends Model
         $this->quantity = $quantity;
     }
 
+    public function getMotorcycleId(): int
+    {
+        return $this->motorcycle_id;
+    }
+
+    public function setMotorcycleId(int $motorcycle_id): void
+    {
+        $this->motorcycle_id = $motorcycle_id;
+    }
+
+    public function getStateId(): int
+    {
+        return $this->state_id;
+    }
+
+    public function setStateId(int $state_id): void
+    {
+        $this->state_id = $state_id;
+    }
+
     //Relationships
 
     public function state(): BelongsTo
@@ -41,5 +61,20 @@ class MotorcyclesPerState extends Model
     public function getState(): Collection
     {
         return $this->state;
+    }
+
+    public function motorcycle(): BelongsTo
+    {
+        return $this->belongsTo(Motorcycle::class);
+    }
+
+    public function getMotorcycle(): Motorcycle
+    {
+        return $this->motorcycle;
+    }
+
+    public function setMotorcycle(Motorcycle $motorcycle): void
+    {
+        $this->motorcycle = $motorcycle;
     }
 }

@@ -25,14 +25,14 @@ class Motorcycle extends Model
      * $this->attributes['description'] - string - contains the Motorcycle item description
      * $this->attributes['price'] - float - contains the Motorcycle item price
      * $this->attributes['stock'] - int - contains the Motorcycle item stock
-     * $this->attributes['state'] - string - contains the Motorcycle item state
+     * $this->attributes['state_id'] - State - contains the Motorcycle item state model
      * $this->attributes['is_active'] - boolean - contains the Motorcycle item status to determine if it can be shown
      * $this->attributes['created_at'] - string - contains the Motorcycle creation date
      * $this->attributes['updated_at'] - string - contains the Motorcycle update date
      * $this->brand - Brand - contains the associated brand
      * $this->orderItems - OrderItem[] - contains the associated order items
      */
-    protected $fillable = ['name', 'model', 'category', 'image', 'description', 'price', 'stock', 'state', 'brand_id'];
+    protected $fillable = ['name', 'model', 'category', 'image', 'description', 'price', 'stock', 'state_id', 'brand_id'];
 
 
     public static function validateMotorcycleRequest(Request $request): void
@@ -61,8 +61,8 @@ class Motorcycle extends Model
             'description' => 'min:1 | max:255',
             'price' => 'numeric | min:1',
             'stock' => 'numeric | min:1',
-            'state' => 'min:1 | max:255',
-            'brand_id' => 'required'
+            'brand_id' => 'required',
+            'state_id' => 'required',
         ]);
     }
 
@@ -141,16 +141,6 @@ class Motorcycle extends Model
         $this->stock = $stock;
     }
 
-    public function getState(): string
-    {
-        return $this->state;
-    }
-
-    public function setState(string $state): void
-    {
-        $this->state = $state;
-    }
-
     public function getBrandId(): int
     {
         return $this->brand_id;
@@ -179,6 +169,16 @@ class Motorcycle extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function getStateId(): int
+    {
+        return $this->state_id;
+    }
+
+    public function setStateId(int $state_id): void
+    {
+        $this->state_id = $state_id;
     }
 
 
@@ -212,5 +212,20 @@ class Motorcycle extends Model
     public function setOrderItems(Collection $orderItems): void
     {
         $this->orderItems = $orderItems;
+    }
+
+    public function state(): BelongsTo
+    {
+        return $this->belongsTo(State::class);
+    }
+
+    public function getState(): State
+    {
+        return $this->state;
+    }
+
+    public function setState(State $state): void
+    {
+        $this->state = $state;
     }
 }

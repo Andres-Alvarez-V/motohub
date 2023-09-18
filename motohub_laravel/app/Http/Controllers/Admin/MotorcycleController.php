@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Interfaces\ImageStorage;
 use App\Models\Brand;
 use App\Models\Motorcycle;
+use App\Models\State;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -36,6 +37,7 @@ class MotorcycleController extends Controller
     public function create(): View
     {
         $viewData['brands'] = Brand::all();
+        $viewData['states'] = State::all();
 
         return view('admin.motorcycle.create')->with('viewData', $viewData);
     }
@@ -59,6 +61,7 @@ class MotorcycleController extends Controller
     public function edit(int $id): View
     {
         $viewData['brands'] = Brand::all();
+        $viewData['states'] = State::all();
         $viewData['motorcycle'] = Motorcycle::findOrFail($id);
 
         return view('admin.motorcycle.edit')->with('viewData', $viewData);
@@ -70,7 +73,7 @@ class MotorcycleController extends Controller
         $motorcycle = Motorcycle::findOrFail($request->id);
         $storeInterface = app(ImageStorage::class);
         $fileName = $storeInterface->store($request);
-        $dataToStore = $request->only(['name', 'model', 'brand_id', 'category', 'description', 'price', 'stock', 'state']);
+        $dataToStore = $request->only(['name', 'model', 'brand_id', 'category', 'description', 'price', 'stock', 'state_id']);
         $dataToStore['image'] = $fileName;
         $motorcycle->update($dataToStore);
 

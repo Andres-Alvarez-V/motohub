@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-center text-muted">
-                    {{$motorcycle->getState()}}
+                    {{$motorcycle->getState()->getName()}}
                 </div>
             </div>
         </div>

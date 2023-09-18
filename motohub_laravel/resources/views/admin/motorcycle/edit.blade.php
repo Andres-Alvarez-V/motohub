@@ -17,24 +17,43 @@
                     <form method="POST" action="{{ route('admin.motorcycle.update') }}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id" value="{{ $viewData['motorcycle']->getId() }}" />
-                        <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getName() }}" placeholder="Enter name" name="name"/>
-                        <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getModel() }}" placeholder="Enter model" name="model"/>
-                        <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getCategory() }}" placeholder="Enter category" name="category"/>
+                        <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getName() }}"
+                            placeholder="Enter name" name="name" />
+                        <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getModel() }}"
+                            placeholder="Enter model" name="model" />
+                        <input type="text" class="form-control mb-2"
+                            value="{{ $viewData['motorcycle']->getCategory() }}" placeholder="Enter category"
+                            name="category" />
                         <input type="file" class="form-control mb-2" name="image" />
-                        <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getDescription() }}" placeholder="Enter a description" name="description"/>
-                        <input type="text" class="form-control mb-2" value="{{ $viewData['motorcycle']->getState() }}" placeholder="Enter a state" name="state"/>
-                        <label for="brand_id">Brand</label>
-                        <select name="brand_id">
-                            @foreach ($viewData["brands"] as $brand)
-                                @if ($brand->getId() == $viewData['motorcycle']->getBrandId())
-                                    <option selected value="{{$brand->getId()}}">{{$brand->getName()}}</option>
+                        <input type="text" class="form-control mb-2"
+                            value="{{ $viewData['motorcycle']->getDescription() }}" placeholder="Enter a description"
+                            name="description" />
+                        <div style="display:flex;flex-direction:column;margin:10px 0">
+                            <label for="state_id">State</label>
+                            <select name="state_id">
+                                @foreach ($viewData["states"] as $state)
+                                @if ($state->getId() == $viewData['motorcycle']->getStateId())
+                                <option selected value="{{$state->getId()}}">{{$state->getName()}}</option>
                                 @else
-                                    <option value="{{$brand->getId()}}">{{$brand->getName()}}</option>
+                                <option value="{{$state->getId()}}">{{$state->getName()}}</option>
                                 @endif
-                            @endforeach
-                        </select>
-                        <input type="number" class="form-control mb-2" value="{{ $viewData['motorcycle']->getStock() }}" placeholder="Enter a stock" name="stock"/>
-                        <input type="number" class="form-control mb-2" value="{{ $viewData['motorcycle']->getPrice() }}" placeholder="Enter a price" name="price"/>
+                                @endforeach
+                            </select>
+                            <label for="brand_id">Brand</label>
+                            <select name="brand_id">
+                                @foreach ($viewData["brands"] as $brand)
+                                @if ($brand->getId() == $viewData['motorcycle']->getBrandId())
+                                <option selected value="{{$brand->getId()}}">{{$brand->getName()}}</option>
+                                @else
+                                <option value="{{$brand->getId()}}">{{$brand->getName()}}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+                        <input type="number" class="form-control mb-2" value="{{ $viewData['motorcycle']->getStock() }}"
+                            placeholder="Enter a stock" name="stock" />
+                        <input type="number" class="form-control mb-2" value="{{ $viewData['motorcycle']->getPrice() }}"
+                            placeholder="Enter a price" name="price" />
                         <input type="submit" class="btn btn-primary-app" value="{{ trans('messages.update') }}" />
                     </form>
                 </div>
