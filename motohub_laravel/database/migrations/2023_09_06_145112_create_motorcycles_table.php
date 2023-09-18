@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('stock');
             $table->boolean('is_active')->default(true);
             $table->unsignedBigInteger('brand_id');
+            $table->unsignedBigInteger('state_id');
             $table->foreign('brand_id')->references('id')->on('brands');
             $table->foreign('state_id')->references('id')->on('states');
             $table->timestamps();
