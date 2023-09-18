@@ -46,4 +46,5 @@ return [
     'originCountry' => 'País de origen',
     'japan' => 'Japón',
     'italy' => 'Italia',
+    'search' => 'Buscar',
 ];

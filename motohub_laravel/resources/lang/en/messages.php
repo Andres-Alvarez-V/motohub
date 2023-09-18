@@ -46,4 +46,5 @@ return [
     'originCountry' => 'Origin country',
     'japan' => 'Japan',
     'italy' => 'Italy',
+    'search' => 'Search',
 ];

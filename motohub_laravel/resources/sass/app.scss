@@ -94,3 +94,20 @@
     height: 150px;
     overflow: hidden;
 }
+
+.search-bar-app{
+    background-color: $background-secondary-color;
+    color: $white-color;
+    border: 0;
+}
+
+.search-bar-app:focus{
+    background-color: $background-secondary-color;
+    color: $white-color;
+    box-shadow: 0 0 0 0.5px $primary-color;
+}
+
+.search-bar-app::placeholder {
+    color: $white-color;
+    opacity: 0.5;
+}

@@ -24,7 +24,7 @@
 
             <div class="text-center">
                 <a
-                    href="{{ route('admin.motorcycle.show', ['id'=> $motorcycle->getId()]) }}"
+                    href="{{ Route::currentRouteName() == 'admin.motorcycle.index' ? route('admin.motorcycle.show', ['id'=> $motorcycle->getId()]) : route('user.motorcycle.show', ['id'=> $motorcycle->getId()]) }}"
                     class="btn btn-primary-app">{{trans('messages.show')}}</a>
             </div>
         </div>
