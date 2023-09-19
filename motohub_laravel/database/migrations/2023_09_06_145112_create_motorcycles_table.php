@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('model');
             $table->string('category');
             $table->string('image');
-            $table->string('description');
-            $table->float('price');
-            $table->integer('stock');
+            $table->text('description');
+            $table->unsignedDouble('price', null, 2);
+            $table->unsignedInteger('stock');
             $table->boolean('is_active')->default(true);
             $table->unsignedBigInteger('brand_id');
             $table->unsignedBigInteger('state_id');

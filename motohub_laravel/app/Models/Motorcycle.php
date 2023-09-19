@@ -32,7 +32,7 @@ class Motorcycle extends Model
      * $this->brand - Brand - contains the associated brand
      * $this->orderItems - OrderItem[] - contains the associated order items
      */
-    protected $fillable = ['name', 'model', 'category', 'image', 'description', 'price', 'stock', 'state_id', 'brand_id'];
+    protected $fillable = ['name', 'model', 'category', 'image', 'description', 'price', 'stock', 'state_id', 'is_active', 'brand_id'];
 
 
     public static function validateMotorcycleRequest(Request $request): void

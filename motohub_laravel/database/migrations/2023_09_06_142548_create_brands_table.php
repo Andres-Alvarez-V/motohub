@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('country_origin');
             $table->integer('foundation_year');
             $table->string('logo_image');
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('motorcycle_id')->references('id')->on('motorcycles');
             $table->foreignId('order_id')->references('id')->on('orders');
-            $table->integer('quantity');
+            $table->unsignedInteger('quantity');
             $table->timestamps();
         });
     }

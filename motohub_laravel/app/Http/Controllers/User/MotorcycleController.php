@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\Motorcycle;
 use Illuminate\View\View;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class MotorcycleController extends Controller
 {
@@ -14,9 +15,14 @@ class MotorcycleController extends Controller
         $this->middleware(['auth', 'lang']);
     }
 
-    public function index(): View
+    public function index(Request $request): View
     {
-        $viewData['motorcycles'] = Motorcycle::where('is_active', true)->get();;
+        $search = $request->query('search');
+
+        $viewData['motorcycles'] = Motorcycle::where('is_active', true)
+        ->where('name', 'LIKE', "%{$search}%")
+        ->orWhere('category', 'LIKE', "%{$search}%")
+        ->get();
 
         return view('user.motorcycle.index')->with('viewData', $viewData);
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\Brand;
 use Illuminate\View\View;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
@@ -14,9 +15,13 @@ class BrandController extends Controller
         $this->middleware(['auth', 'lang']);
     }
 
-    public function index(): View
+    public function index(Request $request): View
     {
-        $viewData['brands'] = Brand::with('motorcycles')->get();
+        $search = $request->query('search');
+        
+        $viewData['brands'] = Brand::where('name', 'LIKE', "%{$search}%")
+        ->with('motorcycles')
+        ->get();
 
         return view('user.brand.index')->with('viewData', $viewData);
     }
