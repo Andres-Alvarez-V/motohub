@@ -26,7 +26,7 @@ class OrderController extends Controller
 
         $subTotal = 0;
         $orderItemsView = [];
-        foreach($orderItems as $orderItem) {
+        foreach ($orderItems as $orderItem) {
             $motorcycle = Motorcycle::findOrFail($orderItem['motorcycleId']);
             $subTotal += $motorcycle->getPrice() * $orderItem['quantity'];
 
@@ -54,7 +54,7 @@ class OrderController extends Controller
         $orderData = $request->session()->get('orderData');
         $orderItems = $orderData['orderItems'] ?? [];
 
-        foreach($orderItems as $key => $orderItem){
+        foreach ($orderItems as $key => $orderItem) {
             if ($orderItem['motorcycleId'] == $motorcycleId) {
                 $orderItem['quantity'] += $quantity;
 
@@ -62,6 +62,7 @@ class OrderController extends Controller
                 $orderData['orderItems'] = $orderItems;
 
                 $request->session()->put('orderData', $orderData);
+
                 return to_route('order.index');
             }
         }
@@ -96,7 +97,7 @@ class OrderController extends Controller
 
     public function save(Request $request): RedirectResponse|View
     {
-        try{
+        try {
             Order::validateSave($request);
 
             $orderData = $request->session()->get('orderData');
@@ -104,7 +105,7 @@ class OrderController extends Controller
 
             $subTotal = 0;
             $motorcycles = [];
-            foreach($orderItems as $orderItem) {
+            foreach ($orderItems as $orderItem) {
                 $motorcycle = Motorcycle::findOrFail($orderItem['motorcycleId']);
                 $motorcycles[] = $motorcycle;
                 $subTotal += $motorcycle->getPrice() * $orderItem['quantity'];
@@ -118,7 +119,7 @@ class OrderController extends Controller
                 return back()->withErrors(['message' => trans('messages.orderInsufficientFunds')]);
             }
 
-            foreach($motorcycles as $motorcycle) {
+            foreach ($motorcycles as $motorcycle) {
                 $motorcycle->update([
                     'stock' => $motorcycle->getStock() - $orderItem['quantity'],
                 ]);

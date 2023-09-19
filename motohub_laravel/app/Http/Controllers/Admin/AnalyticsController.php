@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -86,7 +87,6 @@ class AnalyticsController extends Controller
         foreach ($brandModels as $brand) {
             $brand->total_sold = $brands->firstWhere('id', $brand->id)->total_sold;
         }
-
 
         return $brandModels;
 

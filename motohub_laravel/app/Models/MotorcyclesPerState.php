@@ -15,7 +15,6 @@ class MotorcyclesPerState extends Model
      * $this->attributes['state_id'] - int - contains the state_id
      * $this->attributes['quantity'] - int - contains the how much of the same bike are in the state
      */
-
     public function getId(): int
     {
         return $this->id;

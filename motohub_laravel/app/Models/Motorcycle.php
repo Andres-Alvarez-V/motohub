@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Http\Request;
-use App\Models\Brand;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\Request;
 
 class Motorcycle extends Model
 {
@@ -34,7 +33,6 @@ class Motorcycle extends Model
      */
     protected $fillable = ['name', 'model', 'category', 'image', 'description', 'price', 'stock', 'state_id', 'is_active', 'brand_id'];
 
-
     public static function validateMotorcycleRequest(Request $request): void
     {
         $request->validate([
@@ -46,7 +44,7 @@ class Motorcycle extends Model
             'price' => 'required',
             'stock' => 'required',
             'state' => 'required',
-            'brand_id' => 'required'
+            'brand_id' => 'required',
         ]);
     }
 
@@ -180,7 +178,6 @@ class Motorcycle extends Model
     {
         $this->state_id = $state_id;
     }
-
 
     //Relationships
 

@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'register'=>'Registrarse',
-    'login'=>'Iniciar sesión',
+    'register' => 'Registrarse',
+    'login' => 'Iniciar sesión',
     'logout' => 'Cerrar sesión',
     'send' => 'Enviar',
     'rememberMe' => 'Recordarme',
@@ -17,7 +17,7 @@ return [
     'confirmPassword' => 'Confirmar contraseña',
     'username' => 'Nombre de usuario',
     'orderTitle' => 'Orden',
-    'orderInsufficientFunds'=>'No tienes suficiente dinero para realizar esta compra',
+    'orderInsufficientFunds' => 'No tienes suficiente dinero para realizar esta compra',
     'orderSave' => 'Orden guardada con éxito',
     'shoppingCart' => 'Carrito de compras',
     'subTotal' => 'Subtotal',

@@ -50,7 +50,6 @@ class OrderItem extends Model
         return $this->attributes['updated_at'];
     }
 
-
     // Relationships
     public function order(): BelongsTo
     {

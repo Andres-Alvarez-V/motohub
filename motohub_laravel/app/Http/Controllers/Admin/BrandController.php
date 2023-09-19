@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Interfaces\ImageStorage;
 use App\Models\Brand;
 use App\Models\Motorcycle;
-use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\View\View;
 
 class BrandController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware(['auth', 'role.admin', 'lang']);
@@ -67,7 +66,7 @@ class BrandController extends Controller
 
     public function update(Request $request): RedirectResponse
     {
-        try{
+        try {
             Brand::validateBrandEdit($request);
             $brand = Brand::findOrFail($request->id);
             $storeInterface = app(ImageStorage::class);
@@ -77,7 +76,7 @@ class BrandController extends Controller
             $brand->update($dataToStore);
 
             return redirect()->route('admin.brand.index');
-        }catch(\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => trans('messages.uploadImageError')]);
         }
     }

@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-
     /**
      * User ATTRIBUTES
      * $this->attributes['id'] - int - contains the User primary key (id)
@@ -24,7 +23,6 @@ class User extends Authenticatable
      * $this->attributes['created_at'] - string - contains the User creation date
      * $this->attributes['updated_at'] - string - contains the User update date
      */
-
     use HasFactory;
 
     protected $fillable = [
@@ -151,5 +149,4 @@ class User extends Authenticatable
     {
         $this->orders = $orders;
     }
-
 }
