@@ -29,16 +29,6 @@
                             value="{{ $viewData['motorcycle']->getDescription() }}" placeholder="Enter a description"
                             name="description" />
                         <div style="display:flex;flex-direction:column;margin:10px 0">
-                            <label for="state_id">State</label>
-                            <select name="state_id">
-                                @foreach ($viewData["states"] as $state)
-                                @if ($state->getId() == $viewData['motorcycle']->getStateId())
-                                <option selected value="{{$state->getId()}}">{{$state->getName()}}</option>
-                                @else
-                                <option value="{{$state->getId()}}">{{$state->getName()}}</option>
-                                @endif
-                                @endforeach
-                            </select>
                             <label for="brand_id">Brand</label>
                             <select name="brand_id">
                                 @foreach ($viewData["brands"] as $brand)
