@@ -23,7 +23,7 @@
             </div>
 
             <div class="text-center">
-                @if (Route::currentRouteName() == 'admin.motorcycle.index')
+                @if (Route::currentRouteName() == 'admin.motorcycle.index' || Route::currentRouteName() == 'admin.brand.show')
                     <a
                         href="{{ route('admin.motorcycle.show', ['id'=> $motorcycle->getId()]) }}"
                         class="btn btn-primary-app">{{trans('messages.show')}}
@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="card-footer secondary-color-app">
-            <p class="text-center m-0">{{$motorcycle->getState()}}</p>
+            <p class="text-center m-0">{{$motorcycle->getModel()}}</p>
         </div>
     </div>
 </div>

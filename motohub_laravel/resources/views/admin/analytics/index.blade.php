@@ -17,7 +17,7 @@
                     <li class="list-group-item d-flex justify-content-center body-app">
                         <div class="card" style="width: 18rem;">
                             <img src="{{ asset('storage/' . $iterator->getMotorcycle()->getImage())}}" class="card-img-top" alt="{{  $iterator->getMotorcycle()->getDescription() }}">
-                            <div class="card-body bg-color-secondary-app text-white">
+                            <div class="card-body bg-secondary-color-app text-white">
                                 <p class="card-text"><b>{{ trans('messages.analyticsItemName') }}: </b>{{$iterator->getMotorcycle()->getName()}}</p>
                                 <p class="card-text"><b>{{ trans('messages.analyticsItemCategory')}}: </b>{{$iterator->getMotorcycle()->getCategory()}}</p>
                                 <p class="card-text"><b>{{ trans('messages.analyticsItemBrand')}}: </b>{{$iterator->getMotorcycle()->getBrand()->getName()}}</p>
@@ -36,7 +36,7 @@
                         <li class="list-group-item d-flex justify-content-center body-app">
                             <div class="card" style="width: 18rem;">
                                 <img src="{{ asset('storage/' . $iterator->getMotorcycle()->getImage())}}" class="card-img-top" alt="{{  $iterator->getMotorcycle()->getDescription() }}">
-                                <div class="card-body bg-color-secondary-app text-white">
+                                <div class="card-body bg-secondary-color-app text-white">
                                     <p class="card-text"><b>{{ trans('messages.analyticsItemName') }}: </b>{{$iterator->getMotorcycle()->getName()}}</p>
                                     <p class="card-text"><b>{{ trans('messages.analyticsItemCategory')}}: </b>{{$iterator->getMotorcycle()->getCategory()}}</p>
                                     <p class="card-text"><b>{{ trans('messages.analyticsItemBrand')}}: </b>{{$iterator->getMotorcycle()->getBrand()->getName()}}</p>
@@ -61,7 +61,7 @@
                     <li class="list-group-item d-flex justify-content-center body-app">
                         <div class="card" style="width: 18rem;">
                             <img src="{{ asset('storage/' . $brand->getLogoImage())}}" class="card-img-top" alt="{{  $brand->getDescription() }}">
-                            <div class="card-body bg-color-secondary-app text-white">
+                            <div class="card-body bg-secondary-color-app text-white">
                                 <p class="card-text"><b>{{ trans('messages.analyticsItemName') }}: </b>{{$brand->getName()}}</p>
                                 <p class="card-text"><b>{{ trans('messages.analyticsItemSoldQuantity')}}: </b> {{$brand["total_sold"]}}</p>
                             </div>
@@ -77,7 +77,7 @@
                         <li class="list-group-item d-flex justify-content-center body-app">
                             <div class="card" style="width: 18rem;">
                                 <img src="{{ asset('storage/' . $brand->getLogoImage())}}" class="card-img-top" alt="{{  $brand->getDescription() }}">
-                                <div class="card-body bg-color-secondary-app text-white">
+                                <div class="card-body bg-secondary-color-app text-white">
                                     <p class="card-text"><b>{{ trans('messages.analyticsItemName') }}: </b>{{$brand->getName()}}</p>
                                     <p class="card-text"><b>{{ trans('messages.analyticsItemSoldQuantity')}}: </b> {{$brand["total_sold"]}}</p>
                                 </div>

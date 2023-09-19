@@ -3,10 +3,11 @@
 @section('content')
 <div class="container">
     <h1 class="mt-3 text-center">{{ trans('messages.motorcycles') }}</h1>
-    <div class="mb-4 text-center">
+    <div class="mb-3 text-center">
         <a href="{{ route('admin.motorcycle.create') }}"
             class="btn btn-primary-app">{{ trans('messages.createMotorcycles') }}</a>
     </div>
+    @include('includes.searchBar')
     <div class="row">
         @foreach ($viewData["motorcycles"] as $motorcycle)
             @include('includes.motorcycleCard')

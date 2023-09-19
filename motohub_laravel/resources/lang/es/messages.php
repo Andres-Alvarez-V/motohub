@@ -61,4 +61,13 @@ return [
     'analyticsItemBrand' => 'Marca',
     'analyticsItemModel' => 'Modelo',
     'analyticsItemSoldQuantity' => 'Cantidad vendida',
+    'description' => 'Descripción',
+    'foundationYear' => 'Año de fundación',
+    'category' => 'Categoría',
+    'model' => 'Modelo',
+    'cart' => 'Carrito',
+    'shippingAddress' => 'Dirección de envío',
+    'exceededStock' => 'Inventario excedido',
+    'motoInfo' => 'Información de la motocicleta',
+    'brandInfo' => 'Información de la marca',
 ];
