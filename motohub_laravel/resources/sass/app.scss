@@ -13,23 +13,27 @@
 }
 
 .bg-primary-color-app{
-    background-color: $background-primary-color;
+    background-color: $background-primary-color !important;
 }
 
 .bg-secondary-color-app {
-    background-color: $background-secondary-color;
+    background-color: $background-secondary-color !important;
+}
+
+.bg-third-color-app {
+    background-color: $background-third-color !important;
 }
 
 .secondary-color-app{
-    color: $secondary-color;
+    color: $secondary-color !important;
 }
 
 .primary-color-app{
-    color: $primary-color;
+    color: $primary-color !important;
 }
 
 .third-color-app{
-    color: $third-color;
+    color: $third-color !important;
 }
 
 .input-app {
