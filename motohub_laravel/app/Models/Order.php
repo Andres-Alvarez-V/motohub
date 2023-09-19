@@ -139,12 +139,10 @@ class Order extends Model
         return $this->attributes['created_at'];
     }
 
-
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
     }
-
 
     // Relationships
     public function user(): BelongsTo

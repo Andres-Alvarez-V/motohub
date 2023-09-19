@@ -166,5 +166,5 @@ return [
             'name' => 'VAUPES',
             'position' => ['lat' => 0.885346, 'lng' => -70.767130],
         ],
-    ]
+    ],
 ];

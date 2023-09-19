@@ -15,7 +15,7 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->role === config('constants.ROLE_ADMIN') ) {
+        if (auth()->user()->role === config('constants.ROLE_ADMIN')) {
             return $next($request);
         }
         abort(403, 'Unauthorized action.');

@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Interfaces\ImageStorage;
 use App\Models\Brand;
 use App\Models\Motorcycle;
 use App\Models\State;
-use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\View\View;
 
 class MotorcycleController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware(['auth', 'role.admin', 'lang']);

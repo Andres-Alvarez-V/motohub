@@ -24,7 +24,6 @@ class Brand extends Model
      * $this->attributes['updated_at'] - string - contains the Brand update date
      * $this->motorcycles - Motorcycle[] - contains the associated motorcycles
      */
-
     protected $fillable = ['name', 'country_origin', 'foundation_year', 'logo_image', 'description'];
 
     public static function validateBrandRequest(Request $request): void
@@ -109,7 +108,6 @@ class Brand extends Model
     {
         return $this->attributes['created_at'];
     }
-
 
     public function getUpdatedAt(): string
     {

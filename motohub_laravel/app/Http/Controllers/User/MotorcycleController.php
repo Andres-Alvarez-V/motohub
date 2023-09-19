@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\Motorcycle;
-use Illuminate\View\View;
 use App\Http\Controllers\Controller;
+use App\Models\Motorcycle;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class MotorcycleController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware(['auth', 'lang']);
@@ -20,9 +19,9 @@ class MotorcycleController extends Controller
         $search = $request->query('search');
 
         $viewData['motorcycles'] = Motorcycle::where('is_active', true)
-        ->where('name', 'LIKE', "%{$search}%")
-        ->orWhere('category', 'LIKE', "%{$search}%")
-        ->get();
+            ->where('name', 'LIKE', "%{$search}%")
+            ->orWhere('category', 'LIKE', "%{$search}%")
+            ->get();
 
         return view('user.motorcycle.index')->with('viewData', $viewData);
     }
@@ -34,5 +33,4 @@ class MotorcycleController extends Controller
 
         return view('user.motorcycle.show')->with('viewData', $viewData);
     }
-
 }

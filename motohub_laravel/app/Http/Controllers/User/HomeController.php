@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
@@ -20,6 +19,7 @@ class HomeController extends Controller
             return redirect()->route('admin.home');
 
         }
+
         return redirect()->route('user.home');
     }
 
