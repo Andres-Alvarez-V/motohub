@@ -8,7 +8,8 @@
         </a>
 
         <li class="nav-item dropdown list-group-item">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 {{ trans('messages.language') }}
             </a>
 
@@ -26,14 +27,16 @@
             </ul>
         </li>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" href="{{ route('user.index') }}">{{ trans('messages.home') }}</a>
+                    <a class="nav-link active text-white"
+                        href="{{ route('user.index') }}">{{ trans('messages.home') }}</a>
                 </li>
 
                 @guest
@@ -43,18 +46,24 @@
                     <a class="nav-link active text-white" href="{{ route('register') }}">{{ trans('messages.register') }}</a>
                 @else
                     <li class="nav-item">
-                        <a href="{{ route('user.motorcycle.index') }}" class="nav-link text-white">
+                        <a class="nav-link text-white" href="{{ route('user.motorcycle.index') }}">
                             {{ trans('messages.motorcycles') }}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('user.brand.index') }}" class="nav-link text-white">
+                        <a class="nav-link text-white" href="{{ route('user.brand.index') }}">
                             {{ trans('messages.brands') }}
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('map.index') }}">{{ trans('messages.map') }}</a>
                     </li>
 
                     <div class="vr bg-white mx-2 d-none d-md-block"></div>
                     @if (Auth::user()->role == config('constants.ROLE_ADMIN'))
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('admin.analytics.index') }}">{{ trans('messages.analyticsTitle') }}</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{ route('admin.brand.index') }}">{{ trans('messages.adminBrands') }}</a>
                         </li>

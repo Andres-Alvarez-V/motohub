@@ -23,9 +23,21 @@
             </div>
 
             <div class="text-center">
-                <a
-                    href="{{ Route::currentRouteName() == 'admin.brand.index' ? route('admin.brand.show', ['id'=> $brand->getId()]) : route('user.brand.show', ['id'=> $brand->getId()]) }}"
-                    class="btn btn-primary-app">{{trans('messages.show')}}</a>
+                @if (Route::currentRouteName() == 'admin.brand.index')
+                    <a
+                        href="{{ route('admin.brand.show', ['id'=> $brand->getId()]) }}"
+                        class="btn btn-primary-app">{{trans('messages.show')}}
+                    </a>
+                    <a
+                        href="{{ route('admin.brand.edit', ['id'=> $brand->getId()]) }}"
+                        class="btn btn-primary-app">{{ trans('messages.edit') }}
+                    </a>
+                @else
+                    <a
+                        href="{{ route('user.brand.show', ['id'=> $brand->getId()]) }}"
+                        class="btn btn-primary-app">{{trans('messages.show')}}
+                    </a>
+                @endif
             </div>
         </div>
         <div class="card-footer secondary-color-app">

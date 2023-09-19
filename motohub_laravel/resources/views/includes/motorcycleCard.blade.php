@@ -23,9 +23,21 @@
             </div>
 
             <div class="text-center">
-                <a
-                    href="{{ Route::currentRouteName() == 'admin.motorcycle.index' ? route('admin.motorcycle.show', ['id'=> $motorcycle->getId()]) : route('user.motorcycle.show', ['id'=> $motorcycle->getId()]) }}"
-                    class="btn btn-primary-app">{{trans('messages.show')}}</a>
+                @if (Route::currentRouteName() == 'admin.motorcycle.index')
+                    <a
+                        href="{{ route('admin.motorcycle.show', ['id'=> $motorcycle->getId()]) }}"
+                        class="btn btn-primary-app">{{trans('messages.show')}}
+                    </a>
+                    <a
+                        href="{{ route('admin.motorcycle.edit', ['id'=> $motorcycle->getId()]) }}"
+                        class="btn btn-primary-app">{{ trans('messages.edit') }}
+                    </a>
+                @else
+                    <a
+                        href="{{ route('user.motorcycle.show', ['id'=> $motorcycle->getId()]) }}"
+                        class="btn btn-primary-app">{{trans('messages.show')}}
+                    </a>
+                @endif
             </div>
         </div>
         <div class="card-footer secondary-color-app">
