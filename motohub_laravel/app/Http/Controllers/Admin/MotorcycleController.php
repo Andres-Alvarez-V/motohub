@@ -18,9 +18,24 @@ class MotorcycleController extends Controller
         $this->middleware(['auth', 'role.admin', 'lang']);
     }
 
-    public function index(): View
+    public function index(Request $request): View
     {
-        $viewData['motorcycles'] = Motorcycle::all();
+        $search = $request->query('search');
+
+        if($request->query('sortBy')){
+            $sortBy = $request->query('sortBy');
+            $viewData['motorcycles'] = Motorcycle::where('is_active', true)
+                ->where('name', 'LIKE', "%{$search}%")
+                ->orWhere('category', 'LIKE', "%{$search}%")
+                ->orderBy('price', $sortBy)
+                ->get();
+            return view('user.motorcycle.index')->with('viewData', $viewData);
+        }
+
+        $viewData['motorcycles'] = Motorcycle::where('is_active', true)
+            ->where('name', 'LIKE', "%{$search}%")
+            ->orWhere('category', 'LIKE', "%{$search}%")
+            ->get();
 
         return view('admin.motorcycle.index')->with('viewData', $viewData);
     }
