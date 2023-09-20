@@ -17,10 +17,13 @@ class BrandController extends Controller
         $this->middleware(['auth', 'role.admin', 'lang']);
     }
 
-    public function index(): View
+    public function index(Request $request): View
     {
-        $viewData['brands'] = Brand::with('motorcycles')->get();
-        $viewData['title'] = 'Brands';
+        $search = $request->query('search');
+
+        $viewData['brands'] = Brand::where('name', 'LIKE', "%{$search}%")
+            ->with('motorcycles')
+            ->get();
 
         return view('admin.brand.index')->with('viewData', $viewData);
     }
