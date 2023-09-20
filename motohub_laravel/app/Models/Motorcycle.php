@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
+use App\Models\MotorcyclesPerState;
 
 class Motorcycle extends Model
 {
@@ -31,7 +32,7 @@ class Motorcycle extends Model
      * $this->brand - Brand - contains the associated brand
      * $this->orderItems - OrderItem[] - contains the associated order items
      */
-    protected $fillable = ['name', 'model', 'category', 'image', 'description', 'price', 'stock', 'state_id', 'is_active', 'brand_id'];
+    protected $fillable = ['name', 'model', 'category', 'image', 'description', 'price', 'stock', 'is_active', 'brand_id'];
 
     public static function validateMotorcycleRequest(Request $request): void
     {
@@ -43,7 +44,6 @@ class Motorcycle extends Model
             'description' => 'required',
             'price' => 'required',
             'stock' => 'required',
-            'state' => 'required',
             'brand_id' => 'required',
         ]);
     }
@@ -60,7 +60,6 @@ class Motorcycle extends Model
             'price' => 'numeric | min:1',
             'stock' => 'numeric | min:1',
             'brand_id' => 'required',
-            'state_id' => 'required',
         ]);
     }
 
@@ -169,16 +168,6 @@ class Motorcycle extends Model
         return $this->attributes['updated_at'];
     }
 
-    public function getStateId(): int
-    {
-        return $this->state_id;
-    }
-
-    public function setStateId(int $state_id): void
-    {
-        $this->state_id = $state_id;
-    }
-
     //Relationships
 
     public function brand(): BelongsTo
@@ -224,5 +213,15 @@ class Motorcycle extends Model
     public function setState(State $state): void
     {
         $this->state = $state;
+    }
+
+    public function motorcyclesPerState(): HasMany
+    {
+        $this->HasMany(MotorcyclesPerState::class);
+    }
+
+    public function getMotorcyclesPerState(): Collection
+    {
+        $this->motorcyclesPerState;
     }
 }

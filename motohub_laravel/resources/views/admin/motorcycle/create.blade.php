@@ -22,12 +22,6 @@
                         <input type="file" class="form-control mb-2" name="image" />
                         <input type="text" class="form-control mb-2" placeholder="Enter a description" name="description" value="{{ old('description') }}" />
                         <div style="display:flex;flex-direction:column;margin:10px 0">
-                            <label for="state_id">State</label>
-                            <select name="state_id">
-                                @foreach ($viewData["states"] as $state)
-                                    <option value="{{$state->getId()}}">{{$state->getName()}}</option>
-                                @endforeach
-                            </select>
                             <label for="brand_id">Brand</label>
                             <select name="brand_id">
                                 @foreach ($viewData["brands"] as $brand)

@@ -72,7 +72,7 @@ class MotorcycleController extends Controller
         $motorcycle = Motorcycle::findOrFail($request->id);
         $storeInterface = app(ImageStorage::class);
         $fileName = $storeInterface->store($request);
-        $dataToStore = $request->only(['name', 'model', 'brand_id', 'category', 'description', 'price', 'stock', 'state_id']);
+        $dataToStore = $request->only(['name', 'model', 'brand_id', 'category', 'description', 'price', 'stock']);
         $dataToStore['image'] = $fileName;
         $motorcycle->update($dataToStore);
 
