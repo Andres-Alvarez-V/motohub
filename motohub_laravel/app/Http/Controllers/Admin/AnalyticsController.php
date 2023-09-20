@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
+use App\Models\Motorcycle;
 use App\Models\OrderItem;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
@@ -53,42 +54,41 @@ class AnalyticsController extends Controller
 
     public function getTopSellingBrands(): Collection
     {
-        $brands = DB::table('motorcycles')
-            ->join('brands', 'motorcycles.brand_id', '=', 'brands.id')
+        $motorcycles = Motorcycle::with('brand')
+            ->select('brand_id', DB::raw('SUM(order_items.quantity) AS total_sold'))
             ->join('order_items', 'motorcycles.id', '=', 'order_items.motorcycle_id')
-            ->select('brands.id', DB::raw('SUM(order_items.quantity) AS total_sold'))
-            ->groupBy('brands.id')
+            ->groupBy('brand_id')
             ->orderBy('total_sold', 'desc')
             ->take(3)
             ->get();
-
-        $brandModels = Brand::whereIn('id', $brands->pluck('id'))->get();
-
-        foreach ($brandModels as $brand) {
-            $brand->total_sold = $brands->firstWhere('id', $brand->id)->total_sold;
+        dd($motorcycles);
+        $brands = new Collection();
+        foreach($motorcycles as $motorcycle) {
+            $brand = $motorcycle->getBrand();
+            $brand->total_sold = $motorcycle->total_sold;
+            $brands->push($brand);
         }
 
-        return $brandModels;
-
+        return $brands;
     }
 
     public function getLowestSellingBrands(): Collection
     {
-        $brands = DB::table('motorcycles')
-            ->join('brands', 'motorcycles.brand_id', '=', 'brands.id')
+        $motorcycles = Motorcycle::with('brand')
+            ->select('brand_id', DB::raw('SUM(order_items.quantity) AS total_sold'))
             ->join('order_items', 'motorcycles.id', '=', 'order_items.motorcycle_id')
-            ->select('brands.id', DB::raw('SUM(order_items.quantity) AS total_sold'))
-            ->groupBy('brands.id')
+            ->groupBy('brand_id')
             ->orderBy('total_sold', 'asc')
             ->take(3)
             ->get();
-        $brandModels = Brand::whereIn('id', $brands->pluck('id'))->get();
-
-        foreach ($brandModels as $brand) {
-            $brand->total_sold = $brands->firstWhere('id', $brand->id)->total_sold;
+        $brands = new Collection();
+        foreach($motorcycles as $motorcycle) {
+            $brand = $motorcycle->getBrand();
+            $brand->total_sold = $motorcycle->total_sold;
+            $brands->push($brand);
         }
 
-        return $brandModels;
+        return $brands;
 
     }
 }

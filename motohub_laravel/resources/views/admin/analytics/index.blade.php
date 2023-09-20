@@ -73,7 +73,7 @@
             <div class="col">
                 <h3 class="col d-flex justify-content-center">{{ trans('messages.analyticsLessSelled') }} </h3>
                 <ul class="list-group list-group-numbered">
-                    @foreach ($viewData["topSellingBrands"] as $brand )
+                    @foreach ($viewData["lowestSellingBrands"] as $brand )
                         <li class="list-group-item d-flex justify-content-center body-app">
                             <div class="card" style="width: 18rem;">
                                 <img src="{{ asset('storage/' . $brand->getLogoImage())}}" class="card-img-top" alt="{{  $brand->getDescription() }}">
