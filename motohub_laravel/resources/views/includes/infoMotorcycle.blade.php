@@ -14,10 +14,17 @@
             <p class="card-text text-white fw-bold"><span class="primary-color-app">{{ trans('messages.price') }}: </span>$ {{ number_format($viewData["motorcycle"]->getPrice()) }}</p>
 
             @if (Route::currentRouteName() == 'admin.motorcycle.show')
-                <a
-                    href="{{ route('admin.motorcycle.disable', ['id' => $viewData['motorcycle']->getId()])}}"
-                    class="my-2 btn btn-primary-app">{{ trans('messages.disableForSale') }}
-                </a>
+                @if ($viewData["motorcycle"]->getIsActive())
+                    <a
+                        href="{{ route('admin.motorcycle.disable', ['id' => $viewData['motorcycle']->getId()])}}"
+                        class="my-2 btn btn-primary-app">{{ trans('messages.disableForSale') }}
+                    </a>
+                @else
+                    <a
+                        href="{{ route('admin.motorcycle.disable', ['id' => $viewData['motorcycle']->getId()])}}"
+                        class="my-2 btn btn-primary-app">{{ trans('messages.enableForSale') }}
+                    </a>
+                @endif
             @else
                 <form method="POST" action="{{ route('order.add') }}">
                     @csrf
