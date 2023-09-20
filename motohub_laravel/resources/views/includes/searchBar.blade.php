@@ -1,7 +1,12 @@
-<form class="w-50 mx-auto mb-3" action="" method="GET">
+<form class="w-50 m-auto mb-3" action="" method="GET">
     @csrf
     <div class="input-group">
         <input type="text" class="form-control search-bar-app" name="search" placeholder="{{ trans('messages.search') }}..."/>
         <button type="submit" class="btn btn-primary-app">{{ trans('messages.search') }}</button>
     </div>
+    <select class="form-select w-25 m-auto mt-2 filter-app" name="sortBy">
+        <option value="" selected>No filter</option>
+        <option value="desc">Descending price</option>
+        <option value="asc">Ascending price</option>
+    </select>
 </form>

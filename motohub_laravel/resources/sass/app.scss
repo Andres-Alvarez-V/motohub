@@ -122,6 +122,11 @@
     opacity: 0.5;
 }
 
+.filter-app:focus{
+    border-color: $primary-color;
+    box-shadow: 0 0 0 0.25rem $primary-color;
+}
+
 .map{
     width: 90%;
     margin: auto;
