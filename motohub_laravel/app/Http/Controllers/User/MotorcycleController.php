@@ -18,6 +18,16 @@ class MotorcycleController extends Controller
     {
         $search = $request->query('search');
 
+        if($request->query('sortBy')){
+            $sortBy = $request->query('sortBy');
+            $viewData['motorcycles'] = Motorcycle::where('is_active', true)
+                ->where('name', 'LIKE', "%{$search}%")
+                ->orWhere('category', 'LIKE', "%{$search}%")
+                ->orderBy('price', $sortBy)
+                ->get();
+            return view('user.motorcycle.index')->with('viewData', $viewData);
+        }
+
         $viewData['motorcycles'] = Motorcycle::where('is_active', true)
             ->where('name', 'LIKE', "%{$search}%")
             ->orWhere('category', 'LIKE', "%{$search}%")
