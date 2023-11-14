@@ -33,23 +33,12 @@ jobs:
         php artisan key:generate
     - name: Directory Permissions
       run: cd motohub_laravel && chmod -R 777 storage bootstrap/cache
-    - name: DATABASE SETUP
-      env:
-        DB_HOST=${{secrets.DB_HOST}}
-        DB_USERNAME=${{secrets.DB_USERNAME}}
-        DB_PASSWORD=${{secrets.DB_PASSWORD}}
-      run: | 
-        cd motohub_laravel
-        php artisan migrate
-    - name: TEST SERVER START
+    - name: Create Database
       run: |
-        cd motohub_laravel
-        php artisan serve &
-    - name: RUN UNIT TEST
+        mkdir -p database
+        touch database/database.sqlite
+    - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
-        DB_HOST=${{secrets.DB_HOST}}
-        DB_USERNAME=${{secrets.DB_USERNAME}}
-        DB_PASSWORD=${{secrets.DB_PASSWORD}}
-      run: |
-        cd motohub_laravel
-        php artisan test
+        DB_CONNECTION: sqlite
+        DB_DATABASE: database/database.sqlite
+      run: vendor/bin/phpunit
