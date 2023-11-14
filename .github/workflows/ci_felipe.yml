@@ -17,7 +17,14 @@ jobs:
     - name: Copy .env
       run: cd motohub_laravel && php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
-      run: cd motohub_laravel && composer install
+      run: |
+        cd motohub_laravel
+        composer install \
+        --ignore-platform-reqs \
+        --no-interaction \
+        --no-plugins \
+        --no-scripts \
+        --prefer-dist 
     - name: Generate key
       run: cd motohub_laravel && php artisan key:generate
     - name: Directory Permissions
