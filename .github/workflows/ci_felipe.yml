@@ -36,7 +36,7 @@ jobs:
     - name: DATABASE SETUP
       env:
         DB_CONNECTION=pgsql
-        DB_HOST=${{ secrets.HOST }}
+        DB_HOST=${{secrets.HOST}}
         DB_PORT=5432
         DB_DATABASE=${{secrets.DATABASE}}
         DB_USERNAME=${{secrets.USERNAME}}
