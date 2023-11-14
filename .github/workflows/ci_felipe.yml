@@ -44,6 +44,7 @@ jobs:
         DB_DATABASE: database/database.sqlite
       run: |
         cd motohub_laravel
+        php artisan migrate
         php artisan serve &
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
