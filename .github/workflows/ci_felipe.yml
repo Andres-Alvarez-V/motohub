@@ -22,6 +22,7 @@ jobs:
       run: |
         cd motohub_laravel
         npm install
+        npm run build
         composer install \
         --ignore-platform-reqs \
         --no-interaction \
