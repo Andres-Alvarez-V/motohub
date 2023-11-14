@@ -35,7 +35,7 @@ jobs:
       run: cd motohub_laravel && chmod -R 777 storage bootstrap/cache
     - name: DATABASE SETUP
       env:
-        DB_CONNECTION=${secrets.DB_CONNECTION}
+        DB_CONNECTION=${{secrets.DB_CONNECTION}}
         DB_DATABASE=${{secrets.DB_DATABASE}}
         DB_HOST=${{secrets.DB_HOST}}
         DB_PORT=${{secrets.DB_PORT}}
@@ -51,10 +51,9 @@ jobs:
         php artisan serve &
     - name: RUN UNIT TEST
       env:
-        DB_CONNECTION=${secrets.DB_CONNECTION}
+        DB_CONNECTION=${{secrets.DB_CONNECTION}}
         DB_DATABASE=${{secrets.DB_DATABASE}}
         DB_HOST=${{secrets.DB_HOST}}
-        DB_PORT=${{secrets.DB_PORT}}
         DB_DATABASE=${{secrets.DB_DATABASE}}
         DB_USERNAME=${{secrets.DB_USERNAME}}
         DB_PASSWORD=${{secrets.DB_PASSWORD}}
