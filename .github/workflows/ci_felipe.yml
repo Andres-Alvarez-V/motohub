@@ -21,6 +21,7 @@ jobs:
     - name: Install Dependencies
       run: |
         cd motohub_laravel
+        npm install
         composer install \
         --ignore-platform-reqs \
         --no-interaction \
