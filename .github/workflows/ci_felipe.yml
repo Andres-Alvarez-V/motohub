@@ -14,10 +14,6 @@ jobs:
       with:
         php-version: '8.1'
     - uses: actions/checkout@v3
-    - name: Copy .env
-      run: | 
-        cd motohub_laravel
-        php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
       run: |
         cd motohub_laravel
@@ -35,13 +31,12 @@ jobs:
       run: cd motohub_laravel && chmod -R 777 storage bootstrap/cache
     - name: DATABASE SETUP
       env:
-        DB_CONNECTION=pgsql
         DB_HOST=${{secrets.HOST}}
-        DB_PORT=5432
         DB_DATABASE=${{secrets.DATABASE}}
         DB_USERNAME=${{secrets.USERNAME}}
         DB_PASSWORD=${{secrets.PASSWORD}}
-      run: | 
+      run: |
+        echo "" 
         cd motohub_laravel
         php artisan migrate
     - name: TEST SERVER START
