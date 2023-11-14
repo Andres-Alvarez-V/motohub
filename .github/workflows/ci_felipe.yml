@@ -45,4 +45,5 @@ jobs:
       run: | 
         cd motohub_laravel
         php artisan migrate
+        php artisan serve
         php artisan test
