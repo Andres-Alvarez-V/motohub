@@ -15,7 +15,9 @@ jobs:
         php-version: '8.0'
     - uses: actions/checkout@v3
     - name: Copy .env
-      run: cd motohub_laravel && php -r "file_exists('.env') || copy('.env.example', '.env');"
+      run: | 
+        cd motohub_laravel
+        php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
       run: |
         cd motohub_laravel
