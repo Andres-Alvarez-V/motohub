@@ -48,7 +48,7 @@ jobs:
     - name: TEST SERVER START
       run: |
         cd motohub_laravel
-        php artisan serve
+        php artisan serve &
     - name: RUN UNIT TEST
       run: |
         php artisan test
