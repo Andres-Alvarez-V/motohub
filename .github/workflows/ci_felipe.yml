@@ -32,7 +32,7 @@ jobs:
       run: |
         cd motohub_laravel
         export NODE_OPTIONS=--max_old_space_size=4096
-        npm run dev &
+        npm run build
     - name: Generate key
       run: | 
         cd motohub_laravel
