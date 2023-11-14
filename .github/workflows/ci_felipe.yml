@@ -18,21 +18,30 @@ jobs:
       run: | 
         cd motohub_laravel
         php -r "file_exists('.env') || copy('.env.example', '.env');"
+    - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Specify the Node.js version you need
+
+    - name: Install dependencies
+      run: |
+        cd motohub_laravel
+        npm ci  # Use `npm ci` for CI environments
+
+    - name: Run Vite Build
+      run: |
+        cd motohub_laravel
+        export NODE_OPTIONS=--max_old_space_size=4096
+        npm run build
     - name: Install Dependencies
       run: |
         cd motohub_laravel
-        npm install
         composer install \
         --ignore-platform-reqs \
         --no-interaction \
         --no-plugins \
         --no-scripts \
         --prefer-dist 
-    - name: Build vite manifest
-      run: |
-        cd motohub_laravel
-        export NODE_OPTIONS=--max_old_space_size=4096
-        npm run build
     - name: Generate key
       run: | 
         cd motohub_laravel
