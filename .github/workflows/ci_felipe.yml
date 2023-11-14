@@ -31,12 +31,13 @@ jobs:
       run: cd motohub_laravel && chmod -R 777 storage bootstrap/cache
     - name: DATABASE SETUP
       env:
+        DB_CONNECTION=pgsql
         DB_HOST=${{secrets.HOST}}
+        DB_PORT=5432
         DB_DATABASE=${{secrets.DATABASE}}
         DB_USERNAME=${{secrets.USERNAME}}
         DB_PASSWORD=${{secrets.PASSWORD}}
-      run: |
-        echo "" 
+      run: | 
         cd motohub_laravel
         php artisan migrate
     - name: TEST SERVER START
