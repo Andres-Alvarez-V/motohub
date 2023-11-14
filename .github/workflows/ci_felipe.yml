@@ -31,7 +31,7 @@ jobs:
     - name: Build vite manifest
       run: |
         cd motohub_laravel
-        npm run build
+        npm run dev &
     - name: Generate key
       run: | 
         cd motohub_laravel
