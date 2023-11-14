@@ -35,6 +35,7 @@ jobs:
       run: cd motohub_laravel && chmod -R 777 storage bootstrap/cache
     - name: Create Database
       run: |
+        cd motohub_laravel
         mkdir -p database
         touch database/database.sqlite
     - name: TEST SERVER START
