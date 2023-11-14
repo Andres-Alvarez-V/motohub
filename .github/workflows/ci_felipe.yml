@@ -37,11 +37,17 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
-    - name: Execute tests (Unit and Feature tests) via PHPUnit
+    - name: TEST SERVER START
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: |
         cd motohub_laravel
         php artisan serve &
+    - name: Execute tests (Unit and Feature tests) via PHPUnit
+      env:
+        DB_CONNECTION: sqlite
+        DB_DATABASE: database/database.sqlite
+      run: |
+        cd motohub_laravel
         vendor/bin/phpunit
