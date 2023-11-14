@@ -24,9 +24,10 @@ jobs:
         npm ci  # Use `npm ci` for CI environments
 
     - name: Run Vite Build
+      env:
+        NODE_OPTIONS=--max_old_space_size=4096
       run: |
         cd motohub_laravel
-        export NODE_OPTIONS=--max_old_space_size=4096
         npm run build
     - name: Install composer Dependencies
       run: |
