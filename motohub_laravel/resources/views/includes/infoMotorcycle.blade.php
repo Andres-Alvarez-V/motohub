@@ -12,6 +12,17 @@
             <p class="card-text text-white"><span class="fw-bold primary-color-app">{{ trans('messages.model') }}: </span>{{$viewData["motorcycle"]->getModel()}}</p>
             <p class="card-text text-white"><span class="fw-bold primary-color-app">{{ trans('messages.description') }}: </span>{{$viewData["motorcycle"]->getDescription()}}</p>
             <p class="card-text text-white fw-bold"><span class="primary-color-app">{{ trans('messages.price') }}: </span>$ {{ number_format($viewData["motorcycle"]->getPrice()) }}</p>
+            <p class="card-text text-white fw-bold"><span class="primary-color-app">{{ trans('messages.displacement') }}: </span>{{ $viewData["displacement"] }}</p>    
+            <p class="card-text text-white fw-bold"><span class="primary-color-app">{{ trans('messages.engine') }}: </span>{{ $viewData["engine"] }}</p>    
+            <p class="card-text text-white fw-bold"><span class="primary-color-app">{{ trans('messages.power') }}: </span>{{ $viewData["power"] }}</p>    
+            <p class="card-text text-white fw-bold"><span class="primary-color-app">{{ trans('messages.torque') }}: </span>{{ $viewData["torque"] }}</p>    
+            <p class="card-text text-white fw-bold"><span class="primary-color-app">{{ trans('messages.valves_per_cylinder') }}: </span>{{ $viewData["valvesPerCylinder"] }}</p>    
+            <p class="card-text text-white fw-bold"><span class="primary-color-app">{{ trans('messages.fuel_system') }}: </span>{{ $viewData["fuelSystem"] }}</p>    
+            <p class="card-text text-white fw-bold"><span class="primary-color-app">{{ trans('messages.cooling') }}: </span>{{ $viewData["cooling"] }}</p>    
+            <p class="card-text text-white fw-bold"><span class="primary-color-app">{{ trans('messages.front_tire') }}: </span>{{ $viewData["frontTire"] }}</p>    
+            <p class="card-text text-white fw-bold"><span class="primary-color-app">{{ trans('messages.rear_tire') }}: </span>{{ $viewData["rearTire"] }}</p>    
+            <p class="card-text text-white fw-bold"><span class="primary-color-app">{{ trans('messages.fuel_capacity') }}: </span>{{ $viewData["fuelCapacity"] }}</p>    
+            <p class="card-text text-white fw-bold"><span class="primary-color-app">{{ trans('messages.total_weight') }}: </span>{{ $viewData["totalWeight"] }}</p>    
 
             @if (Route::currentRouteName() == 'admin.motorcycle.show')
                 @if ($viewData["motorcycle"]->getIsActive())

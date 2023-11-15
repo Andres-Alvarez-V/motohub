@@ -61,7 +61,6 @@ class AnalyticsController extends Controller
             ->orderBy('total_sold', 'desc')
             ->take(3)
             ->get();
-        dd($motorcycles);
         $brands = new Collection();
         foreach($motorcycles as $motorcycle) {
             $brand = $motorcycle->getBrand();

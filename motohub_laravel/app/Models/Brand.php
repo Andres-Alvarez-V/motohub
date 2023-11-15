@@ -32,7 +32,7 @@ class Brand extends Model
             'name' => 'required',
             'country_origin' => 'required',
             'foundation_year' => 'required',
-            'image' => 'required | image | mimes:jpeg,png,jpg,gif,svg',
+            // 'image' => 'required | image | mimes:jpeg,png,jpg,gif,svg',
             'description' => 'required',
         ]);
     }
