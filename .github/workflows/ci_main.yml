@@ -20,7 +20,11 @@ jobs:
       run: | 
         cd motohub_laravel
         php -r "file_exists('.env') || copy('.env.example', '.env');"
-    - name: Install Dependencies
+    - name: Install npm dependencies
+      run: |
+        cd motohub_laravel
+        npm ci  # Use `npm ci` for CI environments
+    - name: Install composer Dependencies
       run: |
         cd motohub_laravel
         composer install \
@@ -35,22 +39,24 @@ jobs:
         php artisan key:generate
     - name: Directory Permissions
       run: cd motohub_laravel && chmod -R 777 storage bootstrap/cache
-    - name: DATABASE SETUP
+    - name: Create Database
+      run: |
+        cd motohub_laravel
+        mkdir -p database
+        touch database/database.sqlite
+    - name: TEST SERVER START
       env:
-        DB_CONNECTION=pgsql
-        DB_HOST=${{ secrets.HOST }}
-        DB_PORT=5432
-        DB_DATABASE=${{ secrets.DATABASE }}
-        DB_USERNAME=${{ secrets.USERNAME }}
-        DB_PASSWORD=${{ secrets.PASSWORD }}
-      run: | 
+        DB_CONNECTION: sqlite
+        DB_DATABASE: database/database.sqlite
+      run: |
         cd motohub_laravel
         php artisan migrate
-    - name: TEST SERVER START
-      run: |
-        cd motohub_laravel
+        php artisan db:seed
         php artisan serve &
-    - name: RUN UNIT TEST
+    - name: Execute tests (Unit and Feature tests) via PHPUnit
+      env:
+        DB_CONNECTION: sqlite
+        DB_DATABASE: database/database.sqlite
       run: |
         cd motohub_laravel
-        php artisan test
+        vendor/bin/phpunit
