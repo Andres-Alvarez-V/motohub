@@ -21,17 +21,19 @@
                         <input type="text" class="input-app text-white mb-2" placeholder="Enter category" name="category" value="{{ old('category') }}" />
                         <input type="file" class="input-app text-white mb-2" name="image" />
                         <input type="text" class="input-app text-white mb-2" placeholder="Enter a description" name="description" value="{{ old('description') }}" />
-                        <div style="display:flex;flex-direction:column;margin:10px 0">
+                        <div class="d-flex flex-column mb-3">
                             <label for="brand_id">Brand</label>
-                            <select name="brand_id">
+                            <select name="brand_id" class="input-app">
                                 @foreach ($viewData["brands"] as $brand)
-                                    <option value="{{$brand->getId()}}">{{$brand->getName()}}</option>
+                                    <option class="input-app" value="{{$brand->getId()}}">{{$brand->getName()}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <input type="number" class="input-app text-white mb-2" placeholder="Enter a stock" name="stock" value="{{ old('stock') }}" />
                         <input type="number" class="input-app text-white mb-2" placeholder="Enter a price" name="price" value="{{ old('price') }}" />
-                        <input type="submit" class="btn btn-primary-app" value="{{ trans('messages.send') }}" />
+                        <div class="row mb-0 d-flex justify-content-center">
+                            <input type="submit" class="btn btn-primary-app col-6" value="{{ trans('messages.send') }}" />
+                        </div>
                     </form>
                 </div>
             </div>
