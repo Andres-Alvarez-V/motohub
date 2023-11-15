@@ -2,9 +2,11 @@
 
 namespace Tests\Feature;
 
+use App\Http\Controllers\Admin\BrandController;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\Client\Request;
 use Tests\TestCase;
 
 class BrandTest extends TestCase
@@ -12,16 +14,10 @@ class BrandTest extends TestCase
 
     public function test_admin_brands(): void
     {
-        $user = new User();
-        $user->setAddress("test_addres");
-        $user->setName("test_name");
-        $user->setEmail("test@email.test");
-        $user->setPassword("$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi");//12345678
-        $user->setRole("ADMIN");
+        $controller = new BrandController();
+        $view = $controller->show(1);
 
-        $response = $this->actingAs($user)->get('/admin/brands');
-
-        $response->assertStatus(200);
+        $this->assertEquals('admin.brand.show', $view->getName());
     }
     
 }

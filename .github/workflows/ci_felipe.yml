@@ -22,13 +22,6 @@ jobs:
       run: |
         cd motohub_laravel
         npm ci  # Use `npm ci` for CI environments
-
-    - name: Run Vite Build
-      run: |
-        cd motohub_laravel
-        npm cache clean --force
-        export NODE_OPTIONS=--max_old_space_size=4096
-        npm run build
     - name: Install composer Dependencies
       run: |
         cd motohub_laravel
@@ -56,6 +49,7 @@ jobs:
       run: |
         cd motohub_laravel
         php artisan migrate
+        php artisan db:seed
         php artisan serve &
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:

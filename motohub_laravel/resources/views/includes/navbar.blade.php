@@ -55,9 +55,9 @@
                             {{ trans('messages.brands') }}
                         </a>
                     </li>
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('map.index') }}">{{ trans('messages.map') }}</a>
-                    </li> -->
+                    </li>
 
                     <div class="vr bg-white mx-2 d-none d-md-block"></div>
                     @if (Auth::user()->role == config('constants.ROLE_ADMIN'))
