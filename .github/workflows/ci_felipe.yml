@@ -49,6 +49,7 @@ jobs:
       run: |
         cd motohub_laravel
         php artisan migrate
+        php artisan db:seed
         php artisan serve &
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
