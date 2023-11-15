@@ -17,6 +17,10 @@ jobs:
       run: | 
         docker login -u $DOCKER_USER -p $DOCKER_PASS 
     - name: Copy .env
+      env:
+        DB_HOST: ${{secrets.DB_HOST}}s
+        DB_USERNAME: ${{secrets.DB_USERNAME}}
+        DB_PASSWORD: ${{secrets.DB_PASSWORD}}
       run: | 
         cd motohub_laravel
         php -r "file_exists('.env') || copy('.env.example', '.env');"
