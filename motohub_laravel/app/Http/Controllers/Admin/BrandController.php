@@ -51,7 +51,6 @@ class BrandController extends Controller
             $fileName = $storeInterface->store($request);
             $dataToStore = $request->only(['name', 'country_origin', 'foundation_year', 'description']);
             $dataToStore['logo_image'] = $fileName;
-            $dataToStore['logo_image'] = "TODOFIX";
             Brand::create($dataToStore);
 
             return redirect()->route('admin.brand.index');
