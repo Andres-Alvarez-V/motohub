@@ -11,8 +11,6 @@ RUN composer install \
     --no-plugins \
     --no-scripts \
     --prefer-dist
-RUN npm install
-CMD [ "npm", "run", "build"  ]
 RUN php artisan key:generate
 RUN php artisan storage:link
 RUN chmod -R 777 storage
