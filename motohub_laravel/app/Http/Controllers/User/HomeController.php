@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Client;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -25,6 +26,13 @@ class HomeController extends Controller
 
     public function home(): View
     {
-        return view('user.home');
+        $client = new Client();
+        $url = "http://projects-for-me.tech/api/products";
+
+        $apiData = $client->request('GET', $url);
+        $contentData = json_decode($apiData->getBody()->getContents(), true);
+
+        $viewData['products'] = $contentData;
+        return view('user.home')->with('viewData', $viewData);
     }
 }
