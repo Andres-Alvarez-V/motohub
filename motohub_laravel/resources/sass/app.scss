@@ -36,6 +36,9 @@
     color: $third-color !important;
 }
 
+.white-color-app{
+    color: $white-color !important;
+}
 .input-app {
     &:focus {
         border: 1px solid $secondary-color;
@@ -111,6 +114,7 @@
     border: 0;
 }
 
+
 .search-bar-app:focus{
     background-color: $background-secondary-color;
     color: $white-color;
@@ -141,4 +145,8 @@
 .marker{
     display: flex;
     flex-direction: column;
+}
+
+.card-container-app{
+    min-width: max-content;
 }
