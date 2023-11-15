@@ -81,4 +81,8 @@ return [
     'rear_tire' => 'Rueda trasera',
     'fuel_capacity' => 'Capacidad de combustible',
     'total_weight' => 'Peso total',
+    'rating' => 'Calificación',
+    'alliedStore' => 'Tienda aliada',
+    'homeInfo' => 'En el mundo del motociclismo, existe una fuerte conexión entre la pasión por las motos y la atracción que suscita entre diferentes personas. Para muchos motociclistas, no solo se trata de una forma de transporte, sino de un estilo de vida que les brinda una sensación única de libertad y adrenalina. Además, no es un secreto que montar una moto puede tener un impacto en cómo otras personas perciben a los motociclistas.',
+    'seeMore' => 'Ver más información',
 ];

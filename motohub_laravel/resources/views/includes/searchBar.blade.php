@@ -5,7 +5,7 @@
         <button type="submit" class="btn btn-primary-app">{{ trans('messages.search') }}</button>
     </div>
     @if(Route::currentRouteName() == 'user.motorcycle.index' || Route::currentRouteName() == 'admin.motorcycle.index')
-        <select class="form-select w-25 m-auto mt-2 filter-app" name="sortBy">
+        <select class="form-select w-25 m-auto mt-2 filter-app input-app" name="sortBy">
             <option value="" selected>No filter</option>
             <option value="desc">Descending price</option>
             <option value="asc">Ascending price</option>
