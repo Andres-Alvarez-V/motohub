@@ -17,6 +17,8 @@ jobs:
       run: | 
         docker login -u $DOCKER_USER -p $DOCKER_PASS 
     - name: Build the Docker image 
-      run: cd motohub_laravel && docker build . --file Dockerfile --tag felipearredond/motohub:latest 
+      run: | 
+        cd motohub_laravel
+        docker build -t felipearredond/motohub:latest .  
     - name: Docker Push 
       run: docker push felipearredond/motohub
