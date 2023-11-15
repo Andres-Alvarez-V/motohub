@@ -57,17 +57,17 @@ class MotorcycleController extends Controller
 
         $contentsData = json_decode($apiData->getBody()->getContents(), true);
 
-        $viewData['displacement'] = $contentsData[0]['displacement'];
-        $viewData['engine'] = $contentsData[0]['engine'];
+        $viewData['displacement'] = $contentsData[0]['displacement'] ?? 'N/A';
+        $viewData['engine'] = $contentsData[0]['engine'] ?? 'N/A';
         $viewData['power'] = $contentsData[0]['power'] ?? 'N/A';
-        $viewData['torque'] = $contentsData[0]['torque'];
-        $viewData['valvesPerCylinder'] = $contentsData[0]['valves_per_cylinder'];
-        $viewData['fuelSystem'] = $contentsData[0]['fuel_system'];
-        $viewData['cooling'] = $contentsData[0]['cooling'];
-        $viewData['frontTire'] = $contentsData[0]['front_tire'];
-        $viewData['rearTire'] = $contentsData[0]['rear_tire'];
-        $viewData['fuelCapacity'] = $contentsData[0]['fuel_capacity'];
-        $viewData['totalWeight'] = $contentsData[0]['total_weight'];
+        $viewData['torque'] = $contentsData[0]['torque'] ?? 'N/A';
+        $viewData['valvesPerCylinder'] = $contentsData[0]['valves_per_cylinder'] ?? 'N/A';
+        $viewData['fuelSystem'] = $contentsData[0]['fuel_system'] ?? 'N/A';
+        $viewData['cooling'] = $contentsData[0]['cooling'] ?? 'N/A';
+        $viewData['frontTire'] = $contentsData[0]['front_tire'] ?? 'N/A';
+        $viewData['rearTire'] = $contentsData[0]['rear_tire'] ?? 'N/A';
+        $viewData['fuelCapacity'] = $contentsData[0]['fuel_capacity'] ?? 'N/A';
+        $viewData['totalWeight'] = $contentsData[0]['total_weight'] ?? 'N/A';
 
         return view('admin.motorcycle.show')->with('viewData', $viewData);
     }
