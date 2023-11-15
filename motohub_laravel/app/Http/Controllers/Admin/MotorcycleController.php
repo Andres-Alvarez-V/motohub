@@ -59,7 +59,7 @@ class MotorcycleController extends Controller
 
         $viewData['displacement'] = $contentsData[0]['displacement'];
         $viewData['engine'] = $contentsData[0]['engine'];
-        $viewData['power'] = $contentsData[0]['power'];
+        $viewData['power'] = $contentsData[0]['power'] ?? 'N/A';
         $viewData['torque'] = $contentsData[0]['torque'];
         $viewData['valvesPerCylinder'] = $contentsData[0]['valves_per_cylinder'];
         $viewData['fuelSystem'] = $contentsData[0]['fuel_system'];
