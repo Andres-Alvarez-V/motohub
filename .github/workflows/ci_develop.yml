@@ -16,6 +16,10 @@ jobs:
         DOCKER_PASS: ${{secrets.DOCKERHUB_PASS}} 
       run: | 
         docker login -u $DOCKER_USER -p $DOCKER_PASS 
+    - name: Copy .env
+      run: | 
+        cd motohub_laravel
+        php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Build the Docker image 
       run: | 
         cd motohub_laravel
